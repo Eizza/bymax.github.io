@@ -10,13 +10,14 @@ var settings = {
 
 window.onload = function(e) {start()};
 function start (e) {
-	menu(0);
+	menu(1);
 	draw(); //canvas
 
 	// EVENTS	
 	mousemove();
 	scroll( true, 0 );
-}
+	}
+
 window.onresize = ( e ) => {
 	settings.w = window.innerWidth;
 	settings.h = window.innerHeight;
@@ -71,18 +72,12 @@ function cursor ( e, active ) {
 function menu ( e ) {
 
 	openClose( e || 0 );
-	// var hamburger = document.querySelector('.hamburger');
 	var linksli   = 0;
-
-	// hamburger.onclick = () => {
-	// 	if( hamburger.checked == true ) { openClose( 1 ); }
-	// 	if( hamburger.checked == false ){ openClose( 0 ); }
-	// }
 
 	$('#hamburger').click(function(){
 		$(this).toggleClass('open');
 		var active = $(this).toggleClass('')[0].getAttribute('class');
-		cl( (active == 'open') ? openClose(1) : openClose(0) )
+		(active == 'open') ? openClose(1) : openClose(0) 
 	});
 
 	$('.links li').hover( function () { 
