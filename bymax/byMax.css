@@ -1,0 +1,43 @@
+:root{
+	--bg     : #0a142e;
+	--w      : #eee;
+	--b      : #111;
+	
+	--color-1: rgba(12, 223, 231, 1);
+	--color-2: rgba(47, 113, 212, 1);
+	--color-3: rgba(50, 53, 196, 1);
+
+	--color-1-03: rgba(12, 223, 231, 0.3);
+	--color-2-03: rgba(47, 113, 212, 0.3);
+	--color-3-03: rgba(50, 53, 196, 0.3);
+	--b-03: rgba(0, 0, 0, 0.3);
+}
+*{
+	margin: 0;
+	padding: 0;
+	list-style: none;
+	outline: none;
+}
+
+*::-webkit-scrollbar{ width: 0px; height: 0px }
+/**::-webkit-scrollbar-track{background-color: var(--bg) }*/
+/**::-webkit-scrollbar-thumb{ background-color: var(--color-1) }*/
+a {
+	text-decoration: none;
+}
+.pointnone {
+	pointer-events: none;
+}
+.interface {
+	position: fixed;
+	z-index: 800;
+}
+.divTest {
+	position: fixed;
+	left: 50%;
+	top: 0;
+	transform: translate(-50%, 0);
+	background-color: #000;
+	color: #0f0;
+	z-index: 9999999;
+}

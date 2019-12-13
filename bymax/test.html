@@ -1,0 +1,48 @@
+ <!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title>DEMO 2</title>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=0.75">
+		<script src="js/GSAP/TweenMax.min.js"></script>
+		<script src="js/jquery-3.4.1.min.js"></script>
+		
+		<style>
+			*{
+				margin: 0;
+				padding: 0;
+				color: #fff;
+			}
+			body {
+				background-color: #080225;
+			}
+			ul {
+				border: 1px solid #fff;
+			}
+			ul li:hover {
+				background-color: red;
+			}
+		</style>
+	</head>
+
+	<body>
+
+	<div class="container">
+		<ul>
+			<li>1</li>
+			<li>2</li>
+			<li>3</li>
+			<li>4</li>
+			<li>5</li>
+		</ul>
+	</div>
+
+
+	<script src="byMax.js"></script>
+	<script type="module">
+		$('ul li').hover(() => {
+			console.log($('ul li').index(this))
+		})
+	</script>
+	</body>
+</html>

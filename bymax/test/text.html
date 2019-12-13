@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=0.75">
+
+	<title>DEMO</title>
+	<link rel="stylesheet" href="byMax.css">
+</head>
+<body>
+	<style>
+
+		html {
+			background: var(--bg);
+		}
+
+		#canvas3D {
+			position: absolute;
+			left: 50%;
+			top: 50%;
+			transform: translate(-50%, -50%);
+			border: 1px solid #fff;
+			width: 500px;
+			height: 500px;
+		}
+
+		
+	</style>
+	
+	<div id="canvas3D"></div>	
+
+	<script src="js/three/three.js"></script>
+	<script src="js/GSAP/TweenMax.min.js"></script>
+
+	<script>
+		// --------------------------------------------------------------------------------------
+
+		var opts = {
+			w: canvas3D.offsetWidth,
+			h: canvas3D.offsetHeight,
+		}
+
+
+		var scene = new THREE.Scene();
+		var camera = new THREE.PerspectiveCamera( 45,  opts.w / opts.h, 0.1, 1000 );
+
+		// var camera = new THREE.OrthographicCamera( opts.w / - 2, opts.w / 2, opts.h / 2, opts.h / - 2, 1, 1000 );
+		// scene.add( camera );
+
+		var renderer = new THREE.WebGLRenderer({antialias: true});
+
+		renderer.setSize(500,500);
+		renderer.setClearColor();
+		canvas3D.appendChild( renderer.domElement );
+
+		var g = new THREE.BoxGeometry( 100, 100, 100);
+		var m = new THREE.MeshBasicMaterial( {color: 0xffffff, wireframe: true} );
+		var cube = new THREE.Mesh( g, m );
+		scene.add(cube);
+
+		camera.position.z = 1 * Math.PI;
+
+
+		function animate() {
+			requestAnimationFrame( animate );
+			renderer.render( scene, camera );
+			cube.rotation.y += 0.01
+		}
+		animate();
+
+		// --------------------------------------------------------------------------------------
+	</script>
+
+</body>
+</html>

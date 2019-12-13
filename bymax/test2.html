@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<link rel="icon" type="image/png" href="img/favicon.png" />	
+	<meta name="viewport" content="width=device-width, initial-scale=0.75">
+
+	<title>demo 2 </title>
+	<link rel="stylesheet" href="byMax.css">
+</head>
+<body>
+	<style>
+
+		html {
+			background: var(--bg);
+		}
+
+		#canvas3D {
+			height: 200vh;
+		}
+		#p {
+			position: fixed;
+			color: #fff;
+		}
+
+	</style>
+	<p id="p">asd</p>
+	<div id="canvas3D">asd</div>	
+
+	<script src="byMax.js"></script>
+	<script src="js/GSAP/TweenMax.min.js"></script>
+
+	<script type="module">
+		// --------------------------------------------------------------------------------------
+		let last_known_scroll_position = 0;
+		let ticking = false;
+
+		function doSomething(sc) {
+  			// Do something with the scroll position
+  			p.innerHTML = sc;
+  		}
+
+  		window.addEventListener('scroll', function(e) {
+  			last_known_scroll_position = window.scrollY;
+
+  			if (!ticking) {
+  				window.requestAnimationFrame(function() {
+  					doSomething(last_known_scroll_position);
+  					ticking = false;
+  				});
+
+  				ticking = true;
+  			}
+  		});
+		// --------------------------------------------------------------------------------------
+	</script>
+
+</body>
+</html>
