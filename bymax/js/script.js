@@ -6,8 +6,6 @@ var settings = {
 	h: window.innerHeight,
 	sc: 0
 }
-
-
 window.onload = function(e) {start()};
 function start (e) {
 	menu(1);
@@ -29,8 +27,6 @@ function mousemove () {
 		cursor(e, isMobile());
 	}
 }
-
-	
 	
 function scroll ( e, sc ) {
 		if( e  == false) return 0;
@@ -80,6 +76,10 @@ function menu ( e ) {
 		(active == 'open') ? openClose(1) : openClose(0) 
 	});
 
+	$('.menu ul li').click(function() {
+		openClose(0);
+			});
+
 	$('.links li').hover( function () { 
 		var index = $('.links li').index(this);
 		var posX  = $('.links li').eq(index).position().left;
@@ -93,6 +93,7 @@ function menu ( e ) {
 	});
 
 	function openClose ( e ){
+		(e == 0) ? $('#hamburger').removeClass('open') : $('#hamburger').addClass('open');
 		var arr = [ 0, -100 ];
 		TweenMax.to('.menu', .5 , {xPercent: arr[e], ease: Power4.easeOut});
 	}

@@ -41,6 +41,7 @@ p, div, h1, h2, h3, h4, h5, h5, a{
 	background: var(--w);
 	border-radius: 100%;
 	z-index: -1;
+	box-shadow: 0 0 2px 0 var(--b)
 }
 .cur1 {
 	position: fixed;
@@ -80,6 +81,7 @@ p, div, h1, h2, h3, h4, h5, h5, a{
 }
 
 #hamburger span {
+
 	display: block;
 	position: absolute;
 	height: 3px;
@@ -135,13 +137,13 @@ p, div, h1, h2, h3, h4, h5, h5, a{
 	position: fixed;
 	width: 300px;
 	height: 100vh;
+	transform: scale(1);
 	background-image: radial-gradient( 430px at left, var(--color-2-03), var(--b-03) );
 	/*background-image: radial-gradient( 430px at left, var(--color-2), var(--bg) );*/
 	left: calc( 100% );
 	z-index: 999;
 	box-shadow: 0 0 10px 2px rgba(0,0,0,0.5);
-	backdrop-filter: blur(20px);
-	/*backdrop-filter: none;*/
+	backdrop-filter: blur(40px);
 }
 .menu .logo {
 	position: relative;
@@ -161,11 +163,11 @@ p, div, h1, h2, h3, h4, h5, h5, a{
 	padding: 12.5px 20px;
 	font-size: 18px;
 	color: var(--w);
-	transition: 0.2s;
+	transition: .2s;
 }
 .menu .item:hover {
 	background: rgba(255,255,255,0.1);
-	padding: 12.5px 25px;
+	border-left: 5px solid var(--w);
 }
 .links {
 	position: absolute;
