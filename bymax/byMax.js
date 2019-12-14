@@ -14,9 +14,7 @@ function isMobile() {
 
 function cl ( e ) { console.log( e ) }
 function cw ( e ) { document.write( e ) }
-function cc ( e ) {
-	var d = $('.divTest').html(e);
-}
+
 
 
 

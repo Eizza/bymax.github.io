@@ -1,5 +1,5 @@
 :root{
-	--bg     : #0a142e;
+	--bg     : #00001f;
 	--w      : #eee;
 	--b      : #111;
 	
@@ -11,6 +11,11 @@
 	--color-2-03: rgba(35, 44, 83, 0.3);
 	--color-3-03: rgba(13, 21, 61, 0.3);
 	--b-03: rgba(0, 0, 0, 0.3);
+
+	--color-1-09: rgba(39, 151, 255, 0.9);
+	--color-2-09: rgba(35, 44, 83, 0.9);
+	--color-3-09: rgba(13, 21, 61, 0.9);
+	--b-09: rgba(0, 0, 0, 0.9);
 }
 *{
 	margin: 0;
@@ -32,7 +37,7 @@ a {
 	position: fixed;
 	z-index: 800;
 }
-.divTest {
+#divTest {
 	position: fixed;
 	left: 50%;
 	top: 0;

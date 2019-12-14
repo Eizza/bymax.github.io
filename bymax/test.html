@@ -16,11 +16,41 @@
 			body {
 				background-color: #080225;
 			}
-			ul {
+			.container {
+				position: relative;
+				width: 50%;
+				height: 100vh;
 				border: 1px solid #fff;
+				transform: translate(-50%);
+				left: 50%;
+				perspective: 1200px;
+				/*background-image: url('img/c1/grid10x10.png');*/
+				background-size: 100%;
 			}
-			ul li:hover {
-				background-color: red;
+			.panel, .panel2 {
+				background-image: url('img/c1/1.png');
+				background-size: 100%;
+				position: absolute;
+				width: calc(50vw * 0.7);
+				height: calc(50vw * 0.7);
+				overflow: hidden;
+				text-align: justify;
+				transform: translate(-50%, -100%) rotateX(75deg);
+				transform-origin: 0px  100%;
+				transform-style: preserve-3d;
+				left: 50%;
+				top: 70%;
+			}
+			.panel2 {
+				top: 75%;
+				background-image: url('img/c1/2.png');
+
+			}
+			
+			.container1 {
+				position: relative;
+				width: 100%;
+				height: 100vh;
 			}
 		</style>
 	</head>
@@ -28,20 +58,19 @@
 	<body>
 
 	<div class="container">
-		<ul>
-			<li>1</li>
-			<li>2</li>
-			<li>3</li>
-			<li>4</li>
-			<li>5</li>
-		</ul>
+		<div class="panel"></div>
+		<div class="panel2"></div>
 	</div>
+	<div class="container1"></div>
 
 
 	<script src="byMax.js"></script>
 	<script type="module">
-		$('ul li').hover(() => {
-			console.log($('ul li').index(this))
+		$(window).scroll(function(e) {
+			var sc = $(this).scrollTop();
+			var sc2 = window.scrollY;
+			console.log(sc/3.14)
+			TweenMax.to('.panel, .panel2', 0, {transform: 'translate(-50%, -100%) rotateX('+ (75 + (sc/Math.PI/7.5)) +'deg)'})
 		})
 	</script>
 	</body>

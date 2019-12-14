@@ -8,12 +8,12 @@ var settings = {
 }
 window.onload = function(e) {start()};
 function start (e) {
-	menu(1);
+	menu(0);
 	draw(); //canvas
 
 	// EVENTS	
 	mousemove();
-	scroll( true, 0 );
+	scroll( 1, 0 );
 	}
 
 window.onresize = ( e ) => {
@@ -23,7 +23,6 @@ window.onresize = ( e ) => {
 
 function mousemove () {
 	window.onmousemove = function ( e ) {
-		// cursor(e, false);
 		cursor(e, isMobile());
 	}
 }
@@ -31,7 +30,7 @@ function mousemove () {
 function scroll ( e, sc ) {
 		if( e  == false) return 0;
 	window.onscroll = function ( e ) {
-		var sc = settings.sc = window.scrollY;;
+		var sc = settings.sc = window.scrollY;
 		scene3d(sc);
 	}
 }
@@ -40,15 +39,9 @@ function scene3d ( sc ) {
 	var divition = (settings.w <= settings.h) ? settings.w : settings.h;
 	var x        = (divition / length) * 40;
 	if( ( (sc / x) + 75 ) > 105) return 0;
-	TweenMax.to('.b2img', 0.1, {
-		rotationX: (sc / x) + 75,
-		zIndex: () => {
-			var a = (sc / x) + 75;
-			cc(a)
-			if(a > 100) return 5
-			else return -1
-		}
-	});
+	
+
+	TweenMax.to('.b2img, .b2img2', 0, {transform: 'translate(-50%, -50%) rotateX('+ (75 + (sc/(3.14*10))) +'deg)'})
 
 }
 
@@ -78,7 +71,16 @@ function menu ( e ) {
 
 	$('.menu ul li').click(function() {
 		openClose(0);
-			});
+		var arr = [ 'index.html', 'index.html', 'test.html' ];
+		( this.innerHTML == 'HOME'   ) ? href(arr[0]) : 0;
+		( this.innerHTML == 'SKILLS' ) ? href(arr[1]) :  0;
+		( this.innerHTML == 'ABOUT'  ) ? href(arr[2]) :  0;
+		function href (e) {
+			setTimeout(()=>{
+				location.href = e;
+			}, 500);	
+		}
+	});
 
 	$('.links li').hover( function () { 
 		var index = $('.links li').index(this);
