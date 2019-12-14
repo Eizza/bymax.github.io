@@ -16,61 +16,105 @@
 			body {
 				background-color: #080225;
 			}
-			.container {
-				position: relative;
-				width: 50%;
-				height: 100vh;
-				border: 1px solid #fff;
-				transform: translate(-50%);
-				left: 50%;
-				perspective: 1200px;
-				/*background-image: url('img/c1/grid10x10.png');*/
-				background-size: 100%;
-			}
-			.panel, .panel2 {
-				background-image: url('img/c1/1.png');
-				background-size: 100%;
-				position: absolute;
-				width: calc(50vw * 0.7);
-				height: calc(50vw * 0.7);
-				overflow: hidden;
-				text-align: justify;
-				transform: translate(-50%, -100%) rotateX(75deg);
-				transform-origin: 0px  100%;
-				transform-style: preserve-3d;
-				left: 50%;
-				top: 70%;
-			}
-			.panel2 {
-				top: 75%;
-				background-image: url('img/c1/2.png');
-
-			}
+		
+			
 			
 			.container1 {
 				position: relative;
-				width: 100%;
+				width: 10vw;
 				height: 100vh;
+			}
+
+			hr {
+				position: relative;
+				width: 100px;
+				height: 1px;
+				margin: 50px 0;
+				transform: translate(-50%, 0);
+				left: 50%;
+				border: none;
+				background: red;
+				overflow: visible;
+			}
+			hr:before, hr:after {
+				content: '';
+				position: absolute;
+				left: 0;
+				top: 0;
+				margin: -5px;
+				width: 10px;
+				height: 10px;
+				border-radius: 10px;
+				background: red;
+				z-index: 2;
+			}
+			hr:after {
+				left: 100%;
 			}
 		</style>
 	</head>
 
 	<body>
 
-	<div class="container">
-		<div class="panel"></div>
-		<div class="panel2"></div>
-	</div>
-	<div class="container1"></div>
+	<div class="container1">1</div>
+	
+	<hr>
+	<hr>
+	<hr>
+	<hr>
+	<hr>
+	<hr>
+	<hr>
+	<hr>
+	<hr>
+	<hr>
+	<hr>
+	<hr>
+	<hr>
+	<hr>
+	<hr>
+	<hr>
+	<hr>
+	<hr>
+	<hr>
+	<hr>
+	<hr>
+	<hr>
+	<hr>
+	<hr>
+	<hr>
+	<hr>
+	<hr>
+	<hr>
+	<hr>
+	<hr>
+	<hr>
+	<hr>
+	<hr>
+	<hr>
+	<hr>
+
+	<div class="container1">1</div>
+	
+
 
 
 	<script src="byMax.js"></script>
 	<script type="module">
 		$(window).scroll(function(e) {
-			var sc = $(this).scrollTop();
-			var sc2 = window.scrollY;
-			console.log(sc/3.14)
-			TweenMax.to('.panel, .panel2', 0, {transform: 'translate(-50%, -100%) rotateX('+ (75 + (sc/Math.PI/7.5)) +'deg)'})
+			var sc = window.scrollY;
+			var hr = document.getElementsByTagName('hr');
+			var top;
+			for(var i=0; i<hr.length; i++) {
+				top = hr[i].offsetTop;
+				if(sc > top - (window.innerHeight * 0.7) && sc < top - (window.innerHeight * 0.6) ) { 
+					TweenMax.to(hr[i], (2), {width: '50%', ease: Elastic.easeOut.config(1, 0.3)}) 
+				}
+				else if (sc < top - (window.innerHeight * 0.69)) { 
+					TweenMax.to(hr[i], (2), {width: '0px', ease: Elastic.easeOut.config(1, 0.3)}) 
+				}
+				
+			}
 		})
 	</script>
 	</body>
