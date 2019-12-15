@@ -4,6 +4,8 @@
 		<title>DEMO 2</title>
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=0.75">
+		<link rel="stylesheet" href="byMax.css">
+
 		<script src="js/GSAP/TweenMax.min.js"></script>
 		<script src="js/jquery-3.4.1.min.js"></script>
 		
@@ -88,6 +90,7 @@
 	</head>
 
 	<body>
+		<div id="divTest">1asd</div>
 
 	<div class="container1"></div>
 	
@@ -182,6 +185,13 @@
 
 			}
 		});
+
+		document.querySelector('html').ontouchmove = function(e){
+			var x = e.touches[0].pageX;
+			var y = e.touches[0].pageY;
+			var a = e.touches.length;
+			divTest.innerHTML = a;
+		}
 	</script>
 	</body>
 </html>
