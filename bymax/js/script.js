@@ -31,11 +31,16 @@ function mousemove () {
 		overlist(isMobile(), x, y);
 	}
 	document.querySelector('.overlist').ontouchmove = function(e){
-		var x = e.touches[0].pageX;
-		var y = e.touches[0].pageY;
+		var x1 = e.touches[0].pageX;
+		var y1 = e.touches[0].pageY;
+		var x2 = e.touches[1].pageX || x1;
+		var y2 = e.touches[1].pageY || y1;
+		var x = ( (x1/2) + (x2/2) );
+		var y = ( (y1/2) + (y2/2) );
 		scrollHidden(1);
 		overlist(e, x , y);
-		// console.log(x)
+		console.log( e.touches.length )
+
 	}
 	document.querySelector('.overlist').ontouchend = function(e){
 		overlist(0);
@@ -127,18 +132,20 @@ function menu ( e ) {
 		(active == 'open') ? openClose(1) : openClose(0) 
 	});
 
-	$('.menu .items li, .container').click(function() {
+	$('.menu .items li').click(function() {
 		openClose(0);
-		var arr = [ 'index.html', 'index.html', 'test.html' ];
+		var arr = [ 'index.html', 'index.html', 'index.html', 'test.html' ];
 		( this.innerHTML == 'HOME'   ) ? href(arr[0]) : 0;
 		( this.innerHTML == 'SKILLS' ) ? href(arr[1]) :  0;
 		( this.innerHTML == 'ABOUT'  ) ? href(arr[2]) :  0;
+		( this.innerHTML == 'DEMO'   ) ? href(arr[3]) :  0;
 		function href (e) {
 			setTimeout(()=>{
 				location.href = e;
 			}, 500);	
 		}
 	});
+
 
 	$('.links li').hover( function () { 
 		var index = $('.links li').index(this);
