@@ -16,20 +16,16 @@
 			body {
 				background-color: #080225;
 			}
-		
-			
-			
 			.container1 {
 				position: relative;
 				width: 10vw;
 				height: 100vh;
 			}
-
 			hr {
 				position: relative;
 				width: 100px;
 				height: 1px;
-				margin: 50px 0;
+				margin: 10px 0;
 				transform: translate(-50%, 0);
 				left: 50%;
 				border: none;
@@ -51,52 +47,93 @@
 			hr:after {
 				left: 100%;
 			}
+			.overlist {
+				position: relative;
+				display: block;
+				width: 100%;
+				text-align: center;
+				transform: translate(-50%, 0);
+				left: 50%;
+			}
+			.overlist li {
+				display: inline-block;
+				width: 150px;
+				height: 150px;
+				margin: 20px;
+			}
+			.circle{
+				position: relative;
+				width: 150px;
+				height: 150px;
+			}
+			.elem, .elem1,.elem2{
+				position: absolute;
+				width: 150px;
+				height: 150px;
+				left: 0;
+				top: 0;
+				z-index: 2;
+			}
+			.elem2 {
+				background: red;
+				width: 150px;
+				height: 150px;
+				border-radius: 50%;
+				transform: translate(-50%, -50%) scale(0.5);
+				left: 50%;
+				top: 50%;
+				z-index: 0;
+			}
 		</style>
 	</head>
 
 	<body>
 
-	<div class="container1">1</div>
+	<div class="container1"></div>
 	
-	<hr>
-	<hr>
-	<hr>
-	<hr>
-	<hr>
-	<hr>
-	<hr>
-	<hr>
-	<hr>
-	<hr>
-	<hr>
-	<hr>
-	<hr>
-	<hr>
-	<hr>
-	<hr>
-	<hr>
-	<hr>
-	<hr>
-	<hr>
-	<hr>
-	<hr>
-	<hr>
-	<hr>
-	<hr>
-	<hr>
-	<hr>
-	<hr>
-	<hr>
-	<hr>
-	<hr>
-	<hr>
-	<hr>
-	<hr>
-	<hr>
+	<hr><hr><hr><hr><hr><hr><hr><hr><hr>
+	<ul class="overlist">
+		<li>
+			<div class="circle">
+				<img class="elem  pointnone" src="img/c2/m1.svg" alt="">
+				<img class="elem1 pointnone" src="img/c2/circle1.svg" alt="">
+				<div class="elem2 pointnone"></div>
+			</div>
+		</li>
+		<li>
+			<div class="circle">
+				<img class="elem  pointnone" src="img/c2/m2.svg" alt="">
+				<img class="elem1 pointnone" src="img/c2/circle1.svg" alt="">
+				<div class="elem2 pointnone"></div>
+			</div>
+		</li>
+		<li>
+			<div class="circle">
+				<img class="elem  pointnone" src="img/c2/m3.svg" alt="">
+				<img class="elem1 pointnone" src="img/c2/circle1.svg" alt="">
+				<div class="elem2 pointnone"></div>
+			</div>
+		</li>
+		<li>
+			<div class="circle">
+				<img class="elem  pointnone" src="img/c2/m4.svg" alt="">
+				<img class="elem1 pointnone" src="img/c2/circle1.svg" alt="">
+				<div class="elem2 pointnone"></div>
+			</div>
+		</li>
+		<li>
+			<div class="circle">
+				<img class="elem  pointnone" src="img/c2/m5.svg" alt="">
+				<img class="elem1 pointnone" src="img/c2/circle1.svg" alt="">
+				<div class="elem2 pointnone"></div>
+			</div>
+		</li>
+		
+		
+	</ul>
+	<hr><hr><hr><hr><hr><hr><hr><hr><hr>
 
-	<div class="container1">1</div>
-	
-
+	<div class="container1"></div>
 
 
 	<script src="byMax.js"></script>
@@ -108,14 +145,43 @@
 			for(var i=0; i<hr.length; i++) {
 				top = hr[i].offsetTop;
 				if(sc > top - (window.innerHeight * 0.7) && sc < top - (window.innerHeight * 0.6) ) { 
-					TweenMax.to(hr[i], (2), {width: '50%', ease: Elastic.easeOut.config(1, 0.3)}) 
+					TweenMax.to(hr[i], (2), {width: '10%', ease: Elastic.easeOut.config(1, 0.3)}) 
 				}
 				else if (sc < top - (window.innerHeight * 0.69)) { 
 					TweenMax.to(hr[i], (2), {width: '0px', ease: Elastic.easeOut.config(1, 0.3)}) 
 				}
 				
 			}
-		})
+		});
+
+		$(window).mousemove(function(e) {
+			var x = e.pageX;
+			var y = e.pageY;
+			var elem = $('.elem'), ex, ey, d;
+			var ew = elem.width();
+			for(var i = 0; i < elem.length; i++) {
+				ex = elem.eq(i).offset().left  + (ew / 2) ;
+				ey = elem.eq(i).offset().top   + (ew / 2) ;
+				d = distance(ex, ey, x, y);
+				if(d > 2000) {
+					return 0
+				}
+				// console.log(d)
+				TweenMax.to($('.elem').eq(i), 0.1, {
+					xPercent: ((x) - ex) / (2 + d/2.5) ,
+					yPercent: ((y) - ey) / (2 + d/2.5)
+				});
+				TweenMax.to($('.elem1').eq(i), 0.1, {
+					xPercent: ((x) - ex) / (2 + d/10) ,
+					yPercent: ((y) - ey) / (2 + d/10)
+				});
+				TweenMax.to($('.elem2').eq(i), 0.1, {
+					xPercent: ((x) - ex) / (2 + d/5) * -1,
+					yPercent: ((y) - ey) / (2 + d/5) * -1
+				});
+
+			}
+		});
 	</script>
 	</body>
 </html>

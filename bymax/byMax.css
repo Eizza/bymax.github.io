@@ -30,6 +30,36 @@
 a {
 	text-decoration: none;
 }
+hr {
+	position: relative;
+	width: 0px;
+	height: 1px;
+	margin: 75px 0;
+	transform: translate(-50%, 0);
+	background: var(--w);
+	left: 50%;
+	border: none;
+	overflow: visible;
+	opacity: 0;
+}
+hr:before, hr:after {
+	content: '';
+	position: absolute;
+	left: 0;
+	top: 0;
+	margin: -5px;
+	width: 10px;
+	height: 10px;
+	border-radius: 10px;
+	background: var(--w);
+	z-index: 2;
+}
+hr:after {
+	left: 100%;
+}
+.hrlong {
+	width: 500px;
+}
 .pointnone {
 	pointer-events: none;
 }
