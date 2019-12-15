@@ -11,6 +11,22 @@
 	<script src="js/jquery-3.4.1.min.js"></script>
 	<script src="js/GSAP/TweenMax.min.js"></script>
 	<script src="js/three/build/three.js"></script>
+	
+	<style>
+		.dot, .dot1, .dot2{
+			position: fixed;
+			width: 5px;
+			height: 5px;
+			background: red;
+			transform: translate(-50%, -50%);
+			left: 0;
+			top: 0;
+		}
+		.dot1, .dot2 {
+			background: green;
+		}
+	</style>
+
 </head>
 <body id="full">
 	
@@ -59,6 +75,10 @@
 			<li><a href="#"><img src="img/i_google.svg" alt=""></a></li>
 		</ul>
 	</div>
+
+	<div class="dot"></div>
+	<div class="dot1"></div>
+	<div class="dot2"></div>
 	
 	<div class="block100"></div>
 	<p style="color: #fff;" >____________________________________________________</p>
@@ -71,15 +91,30 @@
 	<script src="js/canvas.js"></script>
 	<script src="js/threeBM.js" type="module"></script>
 	<script>
+			var dot = document.querySelector('.dot');
+			var dot1 = document.querySelector('.dot1');
+			var dot2 = document.querySelector('.dot2');
 		document.querySelector('html').ontouchmove = function(e){
+
 			var x1 = e.touches[0].pageX;
 			var y1 = e.touches[0].pageY;
-			var x2 = e.touches[1].pageX;
-			var y2 = e.touches[1].pageY;
+			var x2 = e.touches[1].pageX || x1;
+			var y2 = e.touches[1].pageY || y1;
+			var x = ( (x1/2) + (x2/2) ) / 2;
+			var y = ( (y1/2) + (y2/2) ) / 2;
+
 			var a = e.touches;
 			console.log(a[0])
 			divTest.innerHTML = x1 + '|' + x2;
+
+			
+			$('.dot').css({
+				'left': x + 'px',
+				'top' : y + 'px'
+			});
+
 		}
+		
 	</script>
 </body>
 </html>
