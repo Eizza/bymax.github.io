@@ -8,6 +8,7 @@ var settings = {
 }
 window.onload = function(e) {start()};
 function start (e) {
+	alert('update')
 	menu(0);
 	draw(); //canvas
 
