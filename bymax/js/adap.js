@@ -9,5 +9,6 @@ $(window).ready(function(  ) {
 		TweenMax.to('.c1b2', s, { height: '60vh' });
 		TweenMax.to('.c1b2 #canvas3D', s, { width: 'calc( 50vh * 0.7 )', height:  'calc( 50vh * 0.7 )', top: '40%'});
 		TweenMax.to('.c1b2 img', s, { width: 'calc( 50vh * 0.7 )', height:  'calc( 50vh * 0.7 )',});
+		TweenMax.to('.container2 .overlist li', s, { margin: '10px' });
 	}
 });	

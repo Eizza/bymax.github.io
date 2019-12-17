@@ -1,5 +1,5 @@
 :root{
-	--bg     : #00001f;
+	--bg     : #101018;
 	--w      : #eee;
 	--b      : #111;
 	
@@ -70,9 +70,11 @@ hr:after {
 #divTest {
 	position: fixed;
 	left: 50%;
-	top: 0;
+	top: 15px;
 	transform: translate(-50%, 0);
 	background-color: #000;
 	color: #0f0;
 	z-index: 9999999;
+	font-family: Monospace;
+	font-size: 15px;
 }

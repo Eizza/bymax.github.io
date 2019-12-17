@@ -8,7 +8,6 @@ var settings = {
 }
 window.onload = function(e) {start()};
 function start (e) {
-	alert('update')
 	menu(0);
 	draw(); //canvas
 
@@ -62,27 +61,28 @@ function scroll ( e, sc ) {
 		scene3d(sc);
 
 			var hr = document.getElementsByTagName('hr');
-			var hrtop;
+			var hrtop, bool;
 			for(var i = 0; i < hr.length; i++ ) {
-				hrtop = hr[i].offsetTop;
-				if(sc > hrtop - (window.innerHeight * 0.9) && sc < hrtop - (window.innerHeight * 0.85) ) { 
-					TweenMax.to(hr[i], (1), {opacity: 1, width: '30%', ease: Elastic.easeOut.config(1, 0.5)}) 
+				hrtop = hr[i].offsetTop - window.innerHeight;
+				bool = ( hr[i].offsetWidth > 0 ) ? 0 : 1;
+				if ( (sc * bool)  >  hrtop + 80) {
+					TweenMax.to(hr[i], (2), {opacity: 1, width: '40%', ease: Elastic.easeOut.config(1, 0.3)}) 
+					if( i == 1) console.log( d )
 				}
-				else if (sc < hrtop - (window.innerHeight * 0.89)) { 
-					TweenMax.to(hr[i], (0.5), {opacity: 0, width: '0px'}) 
+				else if ( sc  <  hrtop + 80 ) {
+					TweenMax.to(hr[i], (.2), {opacity: 0, width: '0%'}) 
 				}
 			}
 	}
 }
+
 function scene3d ( sc ) {
 	var length   = (settings.w >= settings.h) ? settings.w : settings.h;
 	var divition = (settings.w <= settings.h) ? settings.w : settings.h;
 	var x        = (divition / length) * 40;
 	if( ( (sc / x) + 75 ) > 105) return 0;
 	
-
 	TweenMax.to('.b2img, .b2img2', 0, {transform: 'translate(-50%, -50%) rotateX('+ (75 + (sc/(3.14*10))) +'deg)'})
-
 }
 
 function cursor ( e, active, x, y ) {
