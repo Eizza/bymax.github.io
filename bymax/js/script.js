@@ -1,13 +1,13 @@
-var settings = {
-	menu: {
-		open : false,
-	},
+var x = {
 	w: window.innerWidth,
 	h: window.innerHeight,
 	sc: 0
 }
 window.onload = function(e) {start()};
 function start (e) {
+
+	console.log("%cAbishev M.","color:#0f0; font-family:sans-serif,Helvetica, arial; font-weight:bold");
+
 	menu(0);
 	draw(); //canvas
 
@@ -17,8 +17,8 @@ function start (e) {
 	}
 
 window.onresize = ( e ) => {
-	settings.w = window.innerWidth;
-	settings.h = window.innerHeight;
+	x.w = window.innerWidth;
+	x.h = window.innerHeight;
 }
 
 function mousemove () {
@@ -55,32 +55,48 @@ function scrollHidden ( e ) {
 }
 	
 function scroll ( e, sc ) {
-		if( e  == false) return 0;
+		if( e == false) return 0;
 	window.onscroll = function ( e ) {
-		var sc = settings.sc = window.scrollY;
+		var sc = x.sc = window.scrollY;
 		scene3d(sc);
 
-			var hr = document.getElementsByTagName('hr');
-			var hrtop, bool;
-			for(var i = 0; i < hr.length; i++ ) {
-				hrtop = hr[i].offsetTop - window.innerHeight;
-				bool = ( hr[i].offsetWidth > 0 ) ? 0 : 1;
-				if ( (sc * bool)  >  hrtop + 80) {
-					TweenMax.to(hr[i], (2), {opacity: 1, width: '40%', ease: Elastic.easeOut.config(1, 0.3)}) 
-					if( i == 1) console.log( d )
-				}
-				else if ( sc  <  hrtop + 80 ) {
-					TweenMax.to(hr[i], (.2), {opacity: 0, width: '0%'}) 
-				}
+		if ( sc > 100 ) TweenMax.to('.intfc_scroll', 0.3, {opacity:0, yPercent: -sc/5, display:"none"})
+		else  			TweenMax.to('.intfc_scroll', 0.3, {opacity:1, yPercent: -sc/5, display:"block"})
+		
+		var hr = document.getElementsByTagName('hr');
+		var htop, bool;
+		for (var i = 0; i < hr.length; i++ ) {
+			htop = hr[i].offsetTop - window.innerHeight;
+			bool = ( hr[i].offsetWidth > 0 ) ? 0 : 1;
+			if ( (sc * bool)  >  htop + 80) {
+				TweenMax.to(hr[i], (0.75), {opacity: 1, width: '40%', ease: Back.easeOut.config(1.7)}) 
 			}
+			else if ( sc  <  htop + 80 ) {
+				TweenMax.to(hr[i], (.5), {opacity: 0, width: '0%'}) 
+			}
+		}
+
+		var header = document.getElementsByClassName('header');
+		for(var i = 0; i < header.length; i++) {
+			htop = getCoords(header[i]).top - x.h;
+			bool = ( header[i].offsetWidth < ( (x.w * 0.2) + (x.h * 0.2) ) ) ? 0 : 1 ;
+			if ( (sc * bool) > htop + 150 ) {
+				TweenMax.to(header[i], 1, {opacity: 1, yPercent: 0, width: 'calc(20vw + 20vh)', ease: Power4.easeOut})
+			}
+			else if ( sc < htop + 150 ) {
+				TweenMax.to(header[i], 0.1, {opacity: 0, yPercent: 100, width: 'calc(30vw + 20vh)'});
+			}
+		}
+
+		
+
 	}
 }
-
 function scene3d ( sc ) {
-	var length   = (settings.w >= settings.h) ? settings.w : settings.h;
-	var divition = (settings.w <= settings.h) ? settings.w : settings.h;
-	var x        = (divition / length) * 40;
-	if( ( (sc / x) + 75 ) > 105) return 0;
+	var length   = (x.w >= x.h) ? x.w : x.h;
+	var divition = (x.w <= x.h) ? x.w : x.h;
+	var d        = (divition / length) * 40;
+	if( ( (sc / d) + 75 ) > 105) return 0;
 	
 	TweenMax.to('.b2img, .b2img2', 0, {transform: 'translate(-50%, -50%) rotateX('+ (75 + (sc/(3.14*10))) +'deg)'})
 }
@@ -90,8 +106,8 @@ function cursor ( e, active, x, y ) {
 		$('.cur, .cur1').remove();
 		return 0;
 	}
-	TweenMax.to('.cur', 0.2, {x:x, y:y, xPercent: -50, yPercent: -50, zIndex: 999999});
-	TweenMax.to('.cur1', 0.4, {x:x, y:y, xPercent: -50, yPercent: -50, zIndex: 999999});
+	TweenMax.to('.cur', 0.2, {x:x, y:y, xPercent: -50, yPercent: -50, zIndex: 9999});
+	TweenMax.to('.cur1', 0.4, {x:x, y:y, xPercent: -50, yPercent: -50, zIndex: 9999});
 }
 function overlist (e, x, y) {
 	var elem = $('.elem'), ex, ey, d;
@@ -125,7 +141,9 @@ function overlist (e, x, y) {
 function menu ( e ) {
 
 	openClose( e || 0 );
+
 	var linksli   = 0;
+	var container = document.getElementsByClassName('container');
 
 	$('#hamburger').click(function(){
 		$(this).toggleClass('open');
@@ -135,15 +153,18 @@ function menu ( e ) {
 
 	$('.menu .items li').click(function() {
 		openClose(0);
-		var arr = [ 'index.html', 'index.html', 'index.html', 'test.html' ];
-		( this.innerHTML == 'HOME'   ) ? href(arr[0]) : 0;
-		( this.innerHTML == 'SKILLS' ) ? href(arr[1]) :  0;
+		var arr = [ '0', '0', 'index.html', 'test.html' ];
+		( this.innerHTML == 'HOME'   ) ? clickScroll(0)   :  0;
+		( this.innerHTML == 'SKILLS' ) ? clickScroll( container[1].offsetTop + (container[1].offsetHeight / 2) - (x.h/2) ) :  0;
 		( this.innerHTML == 'ABOUT'  ) ? href(arr[2]) :  0;
 		( this.innerHTML == 'DEMO'   ) ? href(arr[3]) :  0;
 		function href (e) {
 			setTimeout(()=>{
 				location.href = e;
 			}, 500);	
+		}
+		function clickScroll (e) {
+			TweenMax.to(document.documentElement, 0.5, {scrollTop: e})
 		}
 	});
 
@@ -161,7 +182,14 @@ function menu ( e ) {
 	});
 
 	function openClose ( e ){
-		(e == 0) ? $('#hamburger').removeClass('open') : $('#hamburger').addClass('open');
+		 if (e == 0) {
+			$('#hamburger').removeClass('open')
+			scrollHidden(0)
+		} 
+		else {
+		 	$('#hamburger').addClass('open');
+		 	scrollHidden(1)
+		};
 		var arr = [ 0, -100 ];
 		TweenMax.to('.menu', .5 , {xPercent: arr[e], ease: Power4.easeOut});
 	}

@@ -10,8 +10,8 @@ var c = {
 }
 
 function draw ( ) {
-	var w = settings.w;
-	var h = settings.h;
+	var w = x.w;
+	var h = x.h;
 
 	$('#canvasBg').attr({"width":w, "height":h});
 
@@ -71,8 +71,8 @@ function draw ( ) {
 				}
 				function loop ( ) {
 
-					w = settings.w;
-					h = settings.h;
+					w = x.w;
+					h = x.h;
 
 					ctx.clearRect(0,0,w, h);
 

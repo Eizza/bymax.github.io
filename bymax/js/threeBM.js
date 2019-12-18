@@ -110,7 +110,7 @@ function init() {
 		}
 
 		window.addEventListener('scroll', function(e) {
-			last_known_scroll_position = settings.sc;
+			last_known_scroll_position = x.sc;
 
 			if (!ticking) {
 				window.requestAnimationFrame(function() {

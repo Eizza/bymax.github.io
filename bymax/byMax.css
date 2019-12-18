@@ -32,7 +32,7 @@ a {
 }
 hr {
 	position: relative;
-	width: 0px;
+	width: 40%;
 	height: 1px;
 	margin: 75px 0;
 	transform: translate(-50%, 0);
@@ -40,7 +40,7 @@ hr {
 	left: 50%;
 	border: none;
 	overflow: visible;
-	opacity: 0;
+	opacity: 1;
 }
 hr:before, hr:after {
 	content: '';
@@ -48,7 +48,7 @@ hr:before, hr:after {
 	left: 0;
 	top: 0;
 	margin: -5px;
-	width: 10px;
+	width: 5px;
 	height: 10px;
 	border-radius: 10px;
 	background: var(--w);

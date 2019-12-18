@@ -13,7 +13,25 @@
 	<script src="js/three/build/three.js"></script>
 	
 	<style>
-		
+		.container {
+			position: relative;
+			width: 200px;
+			height: 500px;
+			border: 1px solid #fff;
+			margin: 0 auto;
+		}
+		.f {
+			position: relative;
+			text-align: center;
+			font-size: 50px;
+			line-height: 80px;
+			display: block;
+			float: left;
+			width: 80px;
+			height: 80px;
+			margin: 10px;
+			background: red;
+		}
 	</style>
 
 </head>
@@ -70,11 +88,18 @@
 	<div class="block100"></div>
 	<hr><hr><hr><hr><hr><hr><hr><hr><hr><hr><hr><hr><hr><hr><hr><hr><hr><hr><hr><hr><hr><hr><hr><hr><hr><hr><hr><hr><hr><hr><hr><hr><hr><hr><hr><hr><hr><hr><hr><hr><hr><hr><hr><hr><hr><hr><hr><hr><hr><hr><hr><hr><hr><hr><hr><hr><hr><hr><hr><hr><hr><hr><hr><hr><hr><hr><hr><hr><hr><hr><hr><hr><hr><hr><hr><hr>
 	<div class="block100"></div>
-				<div id="canvas3D"></div>
+	<div class="container">
+		<div class="f">a</div>
+		<div class="f">b</div>
+		<div class="f">c</div>
+		<div class="f">d</div>
+		<div class="f">e</div>
+	</div>
+
+
 	
 	<!-- --------------------------------------------------------------------- -->
 	
-	<div class="container container3"></div>
 	<script src="byMax.js"></script>
 	<script src="js/adap.js"></script>
 	<script src="js/script.js"></script>
@@ -82,10 +107,8 @@
 	<script src="js/threeBM.js" type="module"></script>
 	<script>
 			
-			
 			var hr = document.getElementsByTagName('hr');
-			var hrtop, bool, sc;
-
+			var hrtop, bool, sc, clickscroll;
 
 			window.onscroll =  function ( e ) {
 				sc = window.scrollY;
@@ -94,18 +117,16 @@
 					hrtop = hr[i].offsetTop - window.innerHeight;
 					d = (hr[i].offsetWidth > 0) ? 0 : 1;
 					if ( (sc * d)  >  hrtop + 80 ) {
-						TweenMax.to(hr[i], (2), {opacity: 1, width: '40%', ease: Elastic.easeOut.config(1, 0.3)}) 
-						if( i == 1) console.log( d )
+						TweenMax.to(hr[i], (5), {opacity: 1, width: '40%', ease: Elastic.easeOut.config(1, 0.3)}) 
 					}
 					else if ( sc  <  hrtop + 80 ) {
-						TweenMax.to(hr[i], (.2), {opacity: 0, width: '0'}) 
+						TweenMax.to(hr[i], (.1), {opacity: 0, width: '0'}) 
 					}
 
 				}
 
 
 			}
-
 	</script>
 </body>
 </html>

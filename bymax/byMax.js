@@ -22,5 +22,14 @@ function distance(x1, y1, x2, y2){
 	return d;
 }
 
+function getCoords(elem) {
+	let box = elem.getBoundingClientRect();
+
+	return {
+		top: box.top + pageYOffset,
+		left: box.left + pageXOffset
+	};
+}
+
 
 

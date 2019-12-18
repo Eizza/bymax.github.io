@@ -1,5 +1,5 @@
 $(window).ready(function(  ) {
-	var w = settings.w = $(this).width()
+	var w = x.w = $(this).width()
 	var s = 0;
 	if( w <= 600 ) {
 		TweenMax.to('.menu',s, {backgroundImage: 'radial-gradient( 430px at left, var(--color-3-09), var(--b-09) )', backdropFilter: 'none'} );
