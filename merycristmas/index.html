@@ -105,7 +105,12 @@
 			}, 500)
 
 
-			l.onmousedown = function (e)  {l.active = true; shotsetup(e.pageX, e.pageY); l.audio.play()}
+			l.onmousedown = function (e)  {
+				l.active = true; 
+				shotsetup(e.pageX, e.pageY); 
+				l.audio.play();
+				document.documentElement.requestFullscreen();
+			}
 			l.onmouseup   = function (e)  {l.active = false;}
 
 			l.onmousemove = function (e) {
