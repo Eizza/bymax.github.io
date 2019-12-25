@@ -48,7 +48,7 @@ hr:before, hr:after {
 	left: 0;
 	top: 0;
 	margin: -5px;
-	width: 5px;
+	width: 10px;
 	height: 10px;
 	border-radius: 10px;
 	background: var(--w);
