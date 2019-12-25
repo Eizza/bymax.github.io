@@ -164,6 +164,7 @@ p, div, h1, h2, h3, h4, h5, h5, a{
 	font-size: 18px;
 	color: var(--w);
 	transition: .2s;
+	border-left: 0px solid var(--w);
 }
 .menu .items .item:hover {
 	background: rgba(255,255,255,0.1);
@@ -267,15 +268,15 @@ p, div, h1, h2, h3, h4, h5, h5, a{
 }
 .container .header {
 	position: absolute;
-	width: calc(20vh + 20vw);
-	margin: 50px auto;
-	border-bottom: 1px solid var(--w);
+	width: 100%;
+	margin: 50px 0;
 	position: relative;
 	text-align: center;
 	text-transform: uppercase;
-	font-size: calc(4vw + 4vh);
-	font-family: times new roman;
+	font-size: calc(2vw + 2vh);
+	font-family: arial;
 	color: var(--w);
+	z-index: 999;
 }
 .container *{
 	/*border: 1px solid #fff;*/
@@ -285,6 +286,7 @@ p, div, h1, h2, h3, h4, h5, h5, a{
 	/*border: 1px solid var(--w);*/
 }
 .container1 {
+	overflow: hidden;
 	height: 100vh;
 	display: grid;
 	grid-template-columns: repeat(auto-fit, minmax(40vh, 1fr));
@@ -392,16 +394,35 @@ p, div, h1, h2, h3, h4, h5, h5, a{
 /*----------------------------cntnr 3-----------------------------*/
 	
 .container3 {
+	position: relative;
 	overflow: hidden;
-	height: calc(40vh + 40vw);
+	width: 100%;
+	height: 100vh;
 }
 
-.container3 img {
+
+
+.container3 .c3b1 .avatar{
 	position: absolute;
-	width: 100%;
+	width: 150px;
+	border-radius: 150px;
 }
 
 /*----------------------------cntnr 3-----------------------------*/
+
+/*----------------------------cntnr 4-----------------------------*/
+.container4 {
+	overflow: hidden;
+	/*border: 1px solid #fff;*/
+	height: 150px;
+}
+.container4 img {
+	opacity: 1;
+	position: absolute;
+	left: 50%;
+	transform: translate(-50%, -50%);
+}
+/*----------------------------cntnr 4-----------------------------*/
 
 /*----------------------------footer-----------------------------*/
 footer {

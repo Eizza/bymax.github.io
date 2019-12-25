@@ -13,24 +13,9 @@
 	<script src="js/three/build/three.js"></script>
 	
 	<style>
-		.container {
-			position: relative;
-			width: 200px;
-			height: 500px;
+		.block {
+			position: absolute;
 			border: 1px solid #fff;
-			margin: 0 auto;
-		}
-		.f {
-			position: relative;
-			text-align: center;
-			font-size: 50px;
-			line-height: 80px;
-			display: block;
-			float: left;
-			width: 80px;
-			height: 80px;
-			margin: 10px;
-			background: red;
 		}
 	</style>
 
@@ -40,7 +25,7 @@
 	<!-- <div class="preloader"></div> -->
 	
 	<!-- <img class="iphone" src="img/iphone.png"> -->
-	<div id="divTest">1</div>
+	<!-- <div id="divTest">1</div> -->
 
 	<canvas id="canvasBg" class="pointnone"></canvas>
 	<div class="cur pointnone"></div>
@@ -85,18 +70,9 @@
 
 	<!-- --------------------------------------------------------------------- -->
 
-	<div class="block100"></div>
-	<hr><hr><hr><hr><hr><hr><hr><hr><hr><hr><hr><hr><hr><hr><hr><hr><hr><hr><hr><hr><hr><hr><hr><hr><hr><hr><hr><hr><hr><hr><hr><hr><hr><hr><hr><hr><hr><hr><hr><hr><hr><hr><hr><hr><hr><hr><hr><hr><hr><hr><hr><hr><hr><hr><hr><hr><hr><hr><hr><hr><hr><hr><hr><hr><hr><hr><hr><hr><hr><hr><hr><hr><hr><hr><hr><hr>
-	<div class="block100"></div>
-	<div class="container">
-		<div class="f">a</div>
-		<div class="f">b</div>
-		<div class="f">c</div>
-		<div class="f">d</div>
-		<div class="f">e</div>
+	<div class="block">
+		Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nisi rerum soluta in accusantium aperiam reprehenderit vero delectus, fugiat sapiente repudiandae, esse impedit, iusto repellat iure debitis provident. Dolore eaque officiis fugiat illo voluptatum! A excepturi consequatur, officia saepe, aspernatur dolorem dolore vel, corporis vero laboriosam architecto neque sapiente! Nostrum assumenda maxime, ipsam. Dicta fugit ducimus beatae vitae ad earum, pariatur, ipsum labore nostrum ipsam amet fuga mollitia ullam. Obcaecati quos sapiente laboriosam maxime, beatae ex delectus eveniet necessitatibus magni sunt eligendi rem accusantium perspiciatis aliquam iusto modi magnam nisi a aliquid quaerat ea aut, facere at, tenetur! Ratione, soluta, odit.
 	</div>
-
-
 	
 	<!-- --------------------------------------------------------------------- -->
 	
@@ -104,29 +80,14 @@
 	<script src="js/adap.js"></script>
 	<script src="js/script.js"></script>
 	<script src="js/canvas.js"></script>
-	<script src="js/threeBM.js" type="module"></script>
+	<!-- <script src="js/threeBM.js" type="module"></script> -->
 	<script>
+			var size = 30;
+			$('.block').css({
+				'width': 'calc( '+size+'vw  + '+size+'vh)',
+				'height': 'calc( '+size+'vw  + '+size+'vh)'
+			})
 			
-			var hr = document.getElementsByTagName('hr');
-			var hrtop, bool, sc, clickscroll;
-
-			window.onscroll =  function ( e ) {
-				sc = window.scrollY;
-
-				for(var i = 0; i < hr.length; i++) {
-					hrtop = hr[i].offsetTop - window.innerHeight;
-					d = (hr[i].offsetWidth > 0) ? 0 : 1;
-					if ( (sc * d)  >  hrtop + 80 ) {
-						TweenMax.to(hr[i], (5), {opacity: 1, width: '40%', ease: Elastic.easeOut.config(1, 0.3)}) 
-					}
-					else if ( sc  <  hrtop + 80 ) {
-						TweenMax.to(hr[i], (.1), {opacity: 0, width: '0'}) 
-					}
-
-				}
-
-
-			}
 	</script>
 </body>
 </html>
