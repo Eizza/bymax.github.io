@@ -100,10 +100,6 @@
 				l.h = window.innerHeight;
 			}
 
-			setInterval(function(){
-				shotsetup(Math.random() * l.w, Math.random() * (l.h /2))
-			}, 500)
-
 
 			l.onmousedown = function (e)  {
 				l.active = true; 
@@ -189,6 +185,12 @@
 						ctx.fill();	
 					}
 
+				}
+
+				for(var i = 0; i < 10; i++) {
+					setTimeout(function() {
+						shotsetup(Math.random() * l.w, Math.random() * (l.h /2))
+					}, 100 * i)
 				}
 
 				function shotsetup (x, y) {
