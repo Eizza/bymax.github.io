@@ -196,16 +196,16 @@
 				
 				setInterval(function() {	
 					shotsetup(Math.random() * l.w, Math.random() * (l.h /2))
-				}, 1000)
+				}, 5000)
 
 				function shotsetup (x, y) {
 					var audioshot = new Audio;
 					audioshot.src = '2.mp3';
-					// audioshot.setAttribute('autoplay', '');
-					// document.body.appendChild(audioshot); 
+					audioshot.setAttribute('autoplay', '');
+					document.body.appendChild(audioshot); 
 
 					setTimeout(function(){
-						// audioshot.remove()
+						audioshot.remove()
 					}, 1000);
 					var color360 = Math.random() * 360;
 					opts.deg360.unshift(color360);
@@ -214,10 +214,10 @@
 				function fireworksetup (lx,ly, deg360) {
 					var audioshot = new Audio;
 					audioshot.src = 'firework.mp3';
-					// audioshot.setAttribute('autoplay', '');
-					// document.body.appendChild(audioshot); 
+					audioshot.setAttribute('autoplay', '');
+					document.body.appendChild(audioshot); 
 					setTimeout(function(){
-						// audioshot.remove()
+						audioshot.remove()
 					}, 2000);
 
 					for(var i=0; i < opts.particles; i++) { arr.unshift( new particle(lx, ly, deg360)); }
