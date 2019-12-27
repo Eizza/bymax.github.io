@@ -6,8 +6,8 @@
 	<meta name="author" content="Abishev M.">
 	<meta name="msapplication-TileColor" content="#f00">
 	<meta name="theme-color" content="#101018">
-	<meta name="mobile-web-app-capable" content="yes">
-	<meta name="apple-mobile-web-app-capable" content="yes">
+	<!-- <meta name="mobile-web-app-capable" content="yes"> -->
+	<!-- <meta name="apple-mobile-web-app-capable" content="yes"> -->
 	<meta name="apple-mobile-web-app-status-bar-style" content="black" />
 
 	<title>Document</title>
@@ -63,7 +63,7 @@
 			}
 		}
 	</style>
-	<audio id="audio" src="RxBeats - MERRY CHRISTMAS AND HAPPY NEW YEAR.mp3"></audio>
+	<audio id="audio" src="bgsound.mp3"></audio>
 	<p class="copyright">@maks.abishev presents</p>
 	<p id="text"></p>
 	<canvas id="canvasBG"></canvas>
@@ -78,7 +78,8 @@
 				var b = Math.pow( (y2-y1) , 2);
 				var d = Math.sqrt( a + b );
 				return d;
-			}
+			},
+			deg360: []
 		}
 
 		function fireworks (e) {
@@ -104,14 +105,15 @@
 			l.onmousedown = function (e)  {
 				l.active = true; 
 				shotsetup(e.pageX, e.pageY); 
-				l.audio.play();
-				document.documentElement.requestFullscreen();
+				// l.audio.play();
+				// l.audio.volume = 0.09
+				// document.documentElement.requestFullscreen();
 			}
 			l.onmouseup   = function (e)  {l.active = false;}
 
 			l.onmousemove = function (e) {
 				if(l.active == false) return 0;
-				shotsetup(e.pageX, e.pageY)
+				// shotsetup(e.pageX, e.pageY)
 			}
 
 			l.canvas = document.getElementById('canvasBG');
@@ -124,20 +126,20 @@
 				// -----------------------context------------------------------
 				l.ctx = canvas.getContext('2d');
 
-				function particle (x, y) {
+				function particle (x, y, deg360) {
 					this.mx = x;
 					this.my = y;
 					this.pi = Math.PI;
-					this.size = 2 + (Math.random() * 1);
+					this.size = 1 + (Math.random() * 1);
 					this.angle = Math.floor( Math.random() * 360 );
-					this.speed = 3 + Math.random() * 1;
+					this.speed = 3 + Math.random() * 0.5;
 					this.alpha = 1;
 					this.gravity = 0;
-
+					this.color = 'hsla('+ (deg360 + (Math.random() * 50)) +', 100%, 50%, '+ this.alpha +')'
 				
 					this.draw = function () {
 						ctx.beginPath();
-						ctx.fillStyle = 'hsla('+ (this.mx/this.pi) +', 100%, 50%, '+ this.alpha +')';
+						ctx.fillStyle = this.color;
 						ctx.arc(this.mx, this.my, this.size, 0, this.pi * 2);
 						ctx.fill();	
 					}
@@ -159,13 +161,17 @@
 
 				}
 
-				function shot (x, y) {
+				function shot (x, y, deg360) {
+
+					// console.log(deg360)
 					this.mx = l.w/2;
 					this.my = l.h;
 					this.pi = Math.PI;
 					this.size = 2;
 					this.speed = 5;
 					this.angle = (Math.atan2(l.w/2 - x, l.h - y) / (this.pi * 2) * 360) * -1;
+					this.color = 'hsla('+ (deg360 + (Math.random() * 50)) +', 100%, 50%, '+ 1 +')'
+
 
 					this.update = function () {
 					this.d = {
@@ -180,24 +186,41 @@
 
 					this.draw = function () {
 						ctx.beginPath();
-						ctx.fillStyle = 'hsla('+ (this.mx/this.pi) +', 100%, 50%, '+ 1 +')';						
+						ctx.fillStyle = this.color;						
 						ctx.arc(this.mx, this.my, this.size, 0, this.pi * 2);
-						ctx.fill();	
+						ctx.fill();
 					}
 
 				}
 
-				for(var i = 0; i < 10; i++) {
-					setTimeout(function() {
-						shotsetup(Math.random() * l.w, Math.random() * (l.h /2))
-					}, 100 * i)
-				}
+				
+				setInterval(function() {	
+					shotsetup(Math.random() * l.w, Math.random() * (l.h /2))
+				}, 1000)
 
 				function shotsetup (x, y) {
-					arrshots.unshift( new shot(x, y) );
+					var audioshot = new Audio;
+					audioshot.src = '2.mp3';
+					// audioshot.setAttribute('autoplay', '');
+					// document.body.appendChild(audioshot); 
+
+					setTimeout(function(){
+						// audioshot.remove()
+					}, 1000);
+					var color360 = Math.random() * 360;
+					opts.deg360.unshift(color360);
+					arrshots.unshift( new shot(x, y, color360) );
 				}
-				function fireworksetup (lx,ly) {
-					for(var i=0; i < opts.particles; i++) { arr.unshift( new particle(lx, ly)); }
+				function fireworksetup (lx,ly, deg360) {
+					var audioshot = new Audio;
+					audioshot.src = 'firework.mp3';
+					// audioshot.setAttribute('autoplay', '');
+					// document.body.appendChild(audioshot); 
+					setTimeout(function(){
+						// audioshot.remove()
+					}, 2000);
+
+					for(var i=0; i < opts.particles; i++) { arr.unshift( new particle(lx, ly, deg360)); }
 				}
 				
 				loop();
@@ -209,14 +232,15 @@
 						arrshots[i].draw();
 						arrshots[i].update();
 						if(arrshots[i].distance < 10) {
-							fireworksetup(arrshots[i].mx, arrshots[i].my)
+							fireworksetup(arrshots[i].mx, arrshots[i].my, opts.deg360[i])
 							arrshots.splice(i, 1);
+							opts.deg360.splice(i, 1);
 						}
 					}
 					for(var i = 0; i < l.arr.length; i++) {
 						l.arr[i].draw();
 						l.arr[i].update();
-						if(arr[i].distance > 200 + (Math.random() * 100)) {
+						if(arr[i].distance > 100 + (Math.random() * 400)) {
 							arr.pop()
 						}
 					}
