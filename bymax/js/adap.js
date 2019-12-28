@@ -2,7 +2,7 @@ $(window).ready(function(  ) {
 	var w = x.w = $(this).width()
 	var s = 0;
 	if( w <= 600 ) {
-		TweenMax.to('.menu',s, {backgroundImage: 'radial-gradient( 430px at left, var(--color-3-09), var(--b-09) )', backdropFilter: 'none'} );
+		TweenMax.to('.menu',s, {background: 'var(--b-09)', backdropFilter: 'none'} );
 		TweenMax.to('.c1b1', s, { height: '40vh' });
 		TweenMax.to('.c1b1 p', s, { justifyContent: 'center', textAlign: 'center', width: 'calc(100% - 50px)', margin:'0 25px' });
 		TweenMax.to('.c1b1 p:nth-child(2)', s, { fontSize: '10px' });

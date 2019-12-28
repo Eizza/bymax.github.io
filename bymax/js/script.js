@@ -68,7 +68,7 @@ function scroll ( e, sc ) {
 			else  			TweenMax.to('.intfc_scroll', 0.3, {opacity:1, yPercent: -sc/5, display:"block"})
 				
 				var hr = document.getElementsByTagName('hr');
-			var htop, bool;
+				var htop, bool;
 			for (var i = 0; i < hr.length; i++ ) {
 				htop = hr[i].offsetTop - window.innerHeight;
 				bool = ( hr[i].offsetWidth > 0 ) ? 0 : 1;
@@ -203,14 +203,28 @@ function scroll ( e, sc ) {
 	function c4 (e) {
 		if (e == false) return 0
 			var block = document.querySelector('.container4');
-		for(var i = 0; i < 40; i++) {
+		for(var i = 0; i < 30; i++) {
 			var img = new Image();
 			img.src = 'img/c4/1.svg';
 			img.style.width = (40 * (i+1)) + 'px';
 			block.appendChild(img)
-			TweenMax.fromTo('.container4 img:nth-child('+(i+1)+')', 1.5, {y: 0, opacity: 0}, {y: 100, opacity: 1 - (i/30), yoyo: true, repeat: -1, ease: Power1.easeInOut, delay: ((i+1)/20)})
+			TweenMax.fromTo('.container4 img:nth-child('+(i+1)+')', 1.25, 
+				{
+					y: 0, 
+					yPercent: 0, 
+					opacity: 0.03,
+				}, {
+					y: 50,
+					opacity: 1 - (i/30), 
+					yPercent: 10, 
+					yoyo: true, 
+					repeat: -1, 
+					ease: Power1.easeInOut, 
+					delay: ((i+1)/20)})
 		}
 	}
+
+	console.log( 1 - (15/30) )
 
 	function preloader (e) {
 		setTimeout(function(){
