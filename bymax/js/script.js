@@ -84,15 +84,37 @@ function scroll ( e, sc ) {
 			for(var i = 0; i < header.length; i++) {
 				htop = getCoords(header[i]).top - x.h;
 				bool = ( header[i].style.opacity > 0 ) ? 0 : 1 ;
-				if ( (sc * bool) > htop + -50 ) {
+				if ( (sc * bool) > htop + 70 ) {
 					TweenMax.to(header[i], 1, {opacity: 1, yPercent: 0, ease: Power4.easeOut});
 				}
-				else if ( sc < (htop + -50)) {
-					TweenMax.to(header[i], 0, {opacity: 0, yPercent: 100});
+				else if ( sc < (htop + 70)) {
+					TweenMax.to(header[i], 0.5, {opacity: 0, yPercent: 100});
 				}
 			}
 
-			
+			var textli = document.getElementsByClassName('li');
+			for(var i = 0; i < textli.length; i++) {
+				htop = getCoords(textli[i]).top - x.h;
+				bool = ( textli[i].style.opacity > 0 ) ? 0 : 1 ;
+				if ( (sc * bool) > htop + 50 ) {
+					TweenMax.to(textli[i], 1, {opacity: 1, yPercent: 0, ease: Power4.easeOut});
+				}
+				else if ( sc < (htop + 50)) {
+					TweenMax.to(textli[i], 0.25, {opacity: 0, yPercent: 100});
+				}
+			}
+
+			var textsubli = document.getElementsByClassName('subli');
+			for(var i = 0; i < textsubli.length; i++) {
+				htop = getCoords(textsubli[i]).top - x.h;
+				bool = ( textsubli[i].style.top > 0 ) ? 0 : 1 ;
+				if ( (sc * bool) > htop + 10 ) {
+					TweenMax.to(textsubli[i], 1, {opacity: 1, yPercent: 0, ease: Power4.easeOut});
+				}
+				else if ( sc < (htop + 10)) {
+					TweenMax.to(textsubli[i], 0.1, {opacity: 0, yPercent: 100});
+				}
+			}
 
 		}
 	}
