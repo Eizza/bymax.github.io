@@ -30,7 +30,7 @@
 a {
 	text-decoration: none;
 }
-hr {
+hr, .hr{
 	position: relative;
 	width: 40%;
 	height: 1px;
@@ -42,7 +42,7 @@ hr {
 	overflow: visible;
 	opacity: 1;
 }
-hr:before, hr:after {
+hr:before, hr:after, .hr:before, .hr:after {
 	content: '';
 	position: absolute;
 	left: 0;
@@ -56,6 +56,17 @@ hr:before, hr:after {
 }
 hr:after {
 	left: 100%;
+}
+.hr:after {
+	top: 100%;
+}
+.hr {
+	position: absolute;
+	width: 1px;
+	height: 80vh;
+	top: 50%;
+	transform: translate(0, -50%);
+	margin: 0;
 }
 .hrlong {
 	width: 500px;

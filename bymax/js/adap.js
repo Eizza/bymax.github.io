@@ -10,5 +10,13 @@ $(window).ready(function(  ) {
 		TweenMax.to('.c1b2 #canvas3D', s, { width: 'calc( 50vh * 0.7 )', height:  'calc( 50vh * 0.7 )', top: '40%', left: '50%'});
 		TweenMax.to('.c1b2 img', s, { width: 'calc( 50vh * 0.7 )', height:  'calc( 50vh * 0.7 )',});
 		TweenMax.to('.container2 .overlist li', s, { margin: '10px' });
+		TweenMax.to('.c3b1, .c3b2', s, { height: '50vh' });
+
+		var hr = document.getElementsByTagName('hr');
+		for(var i = 0; i < hr.length; i++) {
+			if( hr[i].className == 'hr' ) {
+				hr[i].style.display = 'none'
+			}	
+		}
 	}
 });	

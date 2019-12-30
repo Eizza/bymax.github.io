@@ -13,9 +13,59 @@
 	<script src="js/three/build/three.js"></script>
 	
 	<style>
-		.block {
-			position: absolute;
+		.container3 {
+			height: 100vh;
+			display: grid;
+			color: var(--w);
+			grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+		}
+		.c3b11, .c3b22 {
+			position: relative;
 			border: 1px solid #fff;
+			height: 100vh;
+		}
+		.circle {
+			position: relative;
+			transform: translate(-50%, -50%);
+			left: 50%;
+			top: 50%;
+			border: 1px solid #fff;
+			width: calc(11vw + 25vh);
+		}
+		.avatar {
+			position: absolute;
+			transform: translate(-50%, -50%);
+			left: 50%;
+			top: 50%;
+			width: 100%;
+			border-radius: 100%;
+			border: 2px solid #fff;
+		}
+		.img11, .img22 {
+			position: absolute;
+			transform: translate(-50%, -50%);
+			left: 50%;
+			top: 50%;
+			width: 105%;
+		}
+		.c3b22 {
+			margin: 0 auto;
+			width: 80%;
+			height: 100vh;
+	
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			justify-content: center;
+			text-align: center;
+	
+		}
+		.c3b22 p {
+			font-size: calc( 1.5vw + 2.1vh );
+			line-height: calc(2.5vw + 3vh);
+		}
+		.subli:before {
+			content: '\00a0\00a0\00a0\00a0\00a0\00a';
 		}
 	</style>
 
@@ -70,8 +120,34 @@
 
 	<!-- --------------------------------------------------------------------- -->
 
+	<div class="container3">
+		<div class="c3b11">
+			<div class="circle">
+				<img src="img/c3/avatar.jpg" alt="" class="avatar">
+				<img src="img/c3/1.svg" alt="" class="img11">
+				<img src="img/c3/2.svg" alt="" class="img22">
+			</div>
+		</div>
+		<hr class="hr">
+		<div class="c3b22">
+			<p class="li" >Abishev Maxat</p>
+			<p class="li" >WEB Designer</p>
+			<p class="li" >Student</p>
+			<br>
+			<p class="li" >Skills</p>
+			<div class="c3b1b1">
+				<p class="subli">Smooth animation </p>
+	    		<p class="subli">Mouse events </p>
+	   			<p class="subli">Touch events </p>
+	    		<p class="subli">Scroll events </p>
+	    		<p class="subli">Adaptive grid </p>
+	    	</div>
+		</div>
+	</div>
 	<div class="block">
-		Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nisi rerum soluta in accusantium aperiam reprehenderit vero delectus, fugiat sapiente repudiandae, esse impedit, iusto repellat iure debitis provident. Dolore eaque officiis fugiat illo voluptatum! A excepturi consequatur, officia saepe, aspernatur dolorem dolore vel, corporis vero laboriosam architecto neque sapiente! Nostrum assumenda maxime, ipsam. Dicta fugit ducimus beatae vitae ad earum, pariatur, ipsum labore nostrum ipsam amet fuga mollitia ullam. Obcaecati quos sapiente laboriosam maxime, beatae ex delectus eveniet necessitatibus magni sunt eligendi rem accusantium perspiciatis aliquam iusto modi magnam nisi a aliquid quaerat ea aut, facere at, tenetur! Ratione, soluta, odit.
+		<p>text</p>
+		<p>text</p>
+		<p>text</p>
 	</div>
 	
 	<!-- --------------------------------------------------------------------- -->
@@ -82,11 +158,8 @@
 	<script src="js/canvas.js"></script>
 	<!-- <script src="js/threeBM.js" type="module"></script> -->
 	<script>
-			var size = 30;
-			$('.block').css({
-				'width': 'calc( '+size+'vw  + '+size+'vh)',
-				'height': 'calc( '+size+'vw  + '+size+'vh)'
-			})
+		
+
 			
 	</script>
 </body>

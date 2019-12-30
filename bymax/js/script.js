@@ -15,6 +15,7 @@ function start (e) {
 	mousemove();
 	scroll( 1, 0 );
 	c4(isMobile());
+	aniLoop();
 }
 
 window.onresize = ( e ) => {
@@ -40,7 +41,6 @@ function mousemove () {
 		var y = ( (y1/2) + (y2/2) );
 		scrollHidden(1);
 		overlist(e, x , y);
-		console.log( e.touches.length )
 
 	}
 	document.querySelector('.overlist').ontouchend = function(e){
@@ -61,60 +61,58 @@ function scroll ( e, sc ) {
 		var sc = x.sc = window.scrollY;
 		scene3d(sc);
 
-
-		// if (sc > ) {}
-		// console.log(sc)
 		if ( sc > 100 ) TweenMax.to('.intfc_scroll', 0.3, {opacity:0, yPercent: -sc/5, display:"none"})
-			else  			TweenMax.to('.intfc_scroll', 0.3, {opacity:1, yPercent: -sc/5, display:"block"})
+		else     	    TweenMax.to('.intfc_scroll', 0.3, {opacity:1, yPercent: -sc/5, display:"block"})
 				
-				var hr = document.getElementsByTagName('hr');
-				var htop, bool;
-			for (var i = 0; i < hr.length; i++ ) {
-				htop = hr[i].offsetTop - window.innerHeight;
-				bool = ( hr[i].offsetWidth > 0 ) ? 0 : 1;
-				if ( (sc * bool)  >  htop + -50) {
-					TweenMax.to(hr[i], (0.75), {opacity: 1, width: '40%', ease: Back.easeOut.config(1.7)}) 
-				}
-				else if ( sc  <  htop + -50 ) {
-					TweenMax.to(hr[i], (0), {opacity: 0, width: '0%'}) 
-				}
+		var hr = document.getElementsByTagName('hr');
+		var htop, bool;
+		for (var i = 0; i < hr.length; i++ ) {
+			if ( hr[i].className == 'hr' ) continue
+			htop = getCoords(hr[i]).top - window.innerHeight;
+			bool = ( hr[i].offsetWidth > 0 ) ? 0 : 1;
+			if ( (sc * bool)  >  htop + -50) {
+				TweenMax.to(hr[i], (0.75), {opacity: 1, width: '40%', ease: Back.easeOut.config(1.7)}) 
 			}
+			else if ( sc  <  htop + -50 ) {
+				TweenMax.to(hr[i], (0), {opacity: 0, width: '0%'}) 
+			}
+		}
 
-			var header = document.getElementsByClassName('header');
-			for(var i = 0; i < header.length; i++) {
-				htop = getCoords(header[i]).top - x.h;
-				bool = ( header[i].style.opacity > 0 ) ? 0 : 1 ;
-				if ( (sc * bool) > htop + 70 ) {
-					TweenMax.to(header[i], 1, {opacity: 1, yPercent: 0, ease: Power4.easeOut});
-				}
-				else if ( sc < (htop + 70)) {
-					TweenMax.to(header[i], 0.5, {opacity: 0, yPercent: 100});
-				}
+		var header = document.getElementsByClassName('header');
+		for(var i = 0; i < header.length; i++) {
+			htop = getCoords(header[i]).top - x.h;
+			bool = ( header[i].style.opacity > 0 ) ? 0 : 1 ;
+			if ( (sc * bool) > htop + 70 ) {
+				TweenMax.to(header[i], 1, {opacity: 1, yPercent: 0, ease: Power4.easeOut});
 			}
+			else if ( sc < (htop + 70)) {
+				TweenMax.to(header[i], 0.5, {opacity: 0, yPercent: 100});
+			}
+		}
 
-			var textli = document.getElementsByClassName('li');
-			for(var i = 0; i < textli.length; i++) {
-				htop = getCoords(textli[i]).top - x.h;
-				bool = ( textli[i].style.opacity > 0 ) ? 0 : 1 ;
-				if ( (sc * bool) > htop + 50 ) {
-					TweenMax.to(textli[i], 1, {opacity: 1, yPercent: 0, ease: Power4.easeOut});
-				}
-				else if ( sc < (htop + 50)) {
-					TweenMax.to(textli[i], 0.25, {opacity: 0, yPercent: 100});
-				}
+		var textli = document.getElementsByClassName('li');
+		for(var i = 0; i < textli.length; i++) {
+			htop = getCoords(textli[i]).top - x.h;
+			bool = ( textli[i].style.opacity > 0 ) ? 0 : 1 ;
+			if ( (sc * bool) > htop + 70 ) {
+				TweenMax.to(textli[i], 0.5, {opacity: 1, yPercent: 0, ease: Power4.easeOut});
 			}
+			else if ( sc < (htop + 70)) {
+				TweenMax.to(textli[i], 0.1, {opacity: 0, yPercent: 100});
+			}
+		}
 
-			var textsubli = document.getElementsByClassName('subli');
-			for(var i = 0; i < textsubli.length; i++) {
-				htop = getCoords(textsubli[i]).top - x.h;
-				bool = ( textsubli[i].style.top > 0 ) ? 0 : 1 ;
-				if ( (sc * bool) > htop + 10 ) {
-					TweenMax.to(textsubli[i], 1, {opacity: 1, yPercent: 0, ease: Power4.easeOut});
-				}
-				else if ( sc < (htop + 10)) {
-					TweenMax.to(textsubli[i], 0.1, {opacity: 0, yPercent: 100});
-				}
+		var textsubli = document.getElementsByClassName('subli');
+		for(var i = 0; i < textsubli.length; i++) {
+			htop = getCoords(textsubli[i]).top - x.h;
+			bool = ( textsubli[i].style.top > 0 ) ? 0 : 1 ;
+			if ( (sc * bool) > htop + 70 ) {
+				TweenMax.to(textsubli[i], .75, {opacity: 1, yPercent: 0, ease: Power4.easeOut});
 			}
+			else if ( sc < (htop + 70)) {
+				TweenMax.to(textsubli[i], 0.1, {opacity: 0, yPercent: 100});
+			}
+		}
 
 		}
 	}
@@ -135,6 +133,7 @@ function scroll ( e, sc ) {
 		TweenMax.to('.cur', 0.2, {x:x, y:y, xPercent: -50, yPercent: -50, zIndex: 9999});
 		TweenMax.to('.cur1', 0.4, {x:x, y:y, xPercent: -50, yPercent: -50, zIndex: 9999});
 	}
+
 	function overlist (e, x, y) {
 		var elem = $('.elem'), ex, ey, d;
 		var ew = elem.width();
@@ -223,8 +222,9 @@ function scroll ( e, sc ) {
 	}
 
 	function c4 (e) {
+		console.log(e)
 		if (e == false) return 0
-			var block = document.querySelector('.container4');
+		var block = document.querySelector('.container4');
 		for(var i = 0; i < 30; i++) {
 			var img = new Image();
 			img.src = 'img/c4/1.svg';
@@ -246,7 +246,22 @@ function scroll ( e, sc ) {
 		}
 	}
 
-	console.log( 1 - (15/30) )
+	function aniLoop (e) {
+		var repeat = -1;
+		var ease = Power0.easeOut;
+		var arr = [
+			'.img1', 60,
+			'.img2', 30,
+		]
+		var arr2 = [
+			'.img2', 30,
+			'.img2', 30,
+		]
+		for(var i = 0; i < arr.length/2; i++) {
+			TweenMax.fromTo(arr[i*2], arr[(i*2)+1], {rotation: 0}, {rotation: 360, repeat: repeat, ease: ease})
+			TweenMax.fromTo(arr2[i*2], arr2[(i*2)+1], {rotation: 0}, {rotation: -360, repeat: repeat, ease: ease})
+		}
+	}
 
 	function preloader (e) {
 		setTimeout(function(){
