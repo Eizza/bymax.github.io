@@ -65,7 +65,7 @@ html{
 .sliderp{
 	overflow: hidden;
 	width: 100%;
-	height: 80vw;
+	height: 85vw;
 	position: relative;
 }
 
@@ -77,25 +77,26 @@ html{
 .slider .item {
 	/*background: red;*/
 	width: 70vw;
-	height: 80vw;
+	height: 85vw;
 	float: left;
 	overflow: hidden;
 	margin:0 15vw;
 	border-radius: 10px;
 }
-.slider .item video {
+.slider .item img {
 	width: 100%;
 	position: relative;
 }
 .slider p{
 	position: absolute;
+	transform: translate(-50%, 0);
 	z-index: 100;
 	color: #fff;
 	text-transform: uppercase;
 	font-weight: bold;
 	font-size: 30px;
-	margin: 10px;
-	 text-shadow: -2px 2px 0 #000, 
+	margin: 10vw 0 0 35vw;
+	text-shadow: -2px 2px 0 #000, 
                           2px 2px 0 #000, 
                          2px -2px 0 #000, 
                         -2px -2px 0 #000;
