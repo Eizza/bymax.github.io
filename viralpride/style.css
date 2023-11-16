@@ -89,7 +89,7 @@ html{
 }
 .slider p{
 	position: absolute;
-	z-index: 10;
+	z-index: 100;
 	color: #fff;
 	text-transform: uppercase;
 	font-weight: bold;
