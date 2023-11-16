@@ -86,12 +86,13 @@ html{
 .slider .item img {
 	width: 100%;
 	position: relative;
-	z-index: 10;
+	z-index: 0;
+	
 }
-.slider p{
+.slider .item p{
 	position: absolute;
 	transform: translate(-50%, 0);
-	z-index: 100;
+	z-index: 10;
 	color: #fff;
 	text-transform: uppercase;
 	font-weight: bold;
