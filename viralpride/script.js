@@ -1,6 +1,6 @@
 // rgba(1,209,255,1)
 window.onload = function(){
-	draw();
+	// draw();
 
 
 	var sliderarrow = 1;
