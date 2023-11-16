@@ -13,25 +13,35 @@ html{
 	position: absolute;
 	z-index: -1;
 }
+.mr5{
+	position: relative;
+	height: 5vh;
+}
 .mr10{
 	position: relative;
-	height: 30px;
+	height: 10vh;
 }
 .mr20{
 	position: relative;
-	height: 60px;
+	height: 12.5vh;
 }
 .mr30{
 	position: relative;
-	height: 90px;
+	height: 15vh;
 }
 .mr40{
 	position: relative;
-	height: 120px;
+	height: 17.5vh;
 }
 .mr50{
 	position: relative;
-	height: 150px;
+	height: 20vh;
+}
+
+.1asd{
+	background: red;
+	width: 10px;
+	height: 50vh;
 }
 
 @keyframes pulselnk{
@@ -141,7 +151,7 @@ a {
 	background: linear-gradient(45deg, rgba(255,255,255,0), rgba(255,255,255,1));
 }
 .linegr img {
-	width: 20px;
+	width: 15px;
 	margin: 10px;
 }
 
