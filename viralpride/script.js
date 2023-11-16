@@ -1,5 +1,39 @@
 // rgba(1,209,255,1)
-window.onload = function(){draw()}
+window.onload = function(){
+	draw();
+
+
+	var sliderarrow = 1;
+
+	var optsl = {
+		count: 1
+	}
+
+	$('.btnr').click(function(){
+		if(optsl.count <= 1) {
+			optsl.count = 5;
+			sliderarrow = -400;
+		}
+		sliderarrow += 100;
+		TweenMax.to('.slider', 0.3, {left: sliderarrow +"vw"});
+		optsl.count--;
+			console.log(optsl.count);
+	});
+
+	$('.btnl').click(function(){
+		if(optsl.count >= 4) {
+			optsl.count = 0;
+			sliderarrow = 100;
+		}
+		sliderarrow -= 100;
+		TweenMax.to('.slider', 0.3, {left: sliderarrow +"vw"});
+		optsl.count++;
+			console.log(optsl.count);
+	});
+
+
+
+}
 
 
 

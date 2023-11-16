@@ -62,17 +62,58 @@ html{
 	transform: translate(-50%, 0) scale(1);
 	}
 }
-
-.slider{
+.sliderp{
+	overflow: hidden;
 	width: 100%;
-	height: 500px;
-	border: 1px solid #fff;
+	height: 80vw;
 	position: relative;
 }
 
+.slider{
+	width: calc((120vw) * 4);
+	position: relative;
+}
 
-.slider source {
-	width: 50%;
+.slider .item {
+	/*background: red;*/
+	width: 70vw;
+	height: 80vw;
+	float: left;
+	overflow: hidden;
+	margin:0 15vw;
+	border-radius: 10px;
+}
+.slider .item video {
+	width: 100%;
+	position: relative;
+}
+.slider p{
+	position: absolute;
+	z-index: 10;
+	color: #fff;
+	text-transform: uppercase;
+	font-weight: bold;
+	font-size: 30px;
+	margin: 10px;
+	 text-shadow: -2px 2px 0 #000, 
+                          2px 2px 0 #000, 
+                         2px -2px 0 #000, 
+                        -2px -2px 0 #000;
+}
+
+.btn {
+	width: 50px;
+	position: absolute;
+	top: 50%;
+	transform: translate(-50%, -50%);
+	z-index: 10;
+}
+.btnl {
+	left: calc(100vw - 7vw);
+}
+.btnr {
+	left: 7vw;
+	transform-origin: center;
 }
 
 #canvas {
