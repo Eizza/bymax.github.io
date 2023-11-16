@@ -59,7 +59,7 @@ html{
 .sliderp{
 	overflow: hidden;
 	width: 100%;
-	height: 85vw;
+	height: 90vw;
 	position: relative;
 }
 
@@ -73,29 +73,15 @@ html{
 	height: 85vw;
 	float: left;
 	overflow: hidden;
-	margin:0 15vw;
+	margin: 15px 15vw;
 	border-radius: 10px;
+	box-shadow: 0 0 10px 5px rgba(0,0,0,.8);
 }
-.slider .item p{
-	position: absolute;
-	transform: translate(-50%, 0);
-	z-index: 10;
-	color: #fff;
-	text-transform: uppercase;
-	font-weight: bold;
-	font-size: 30px;
-	margin: 10vw 0 0 35vw;
-	text-shadow: -2px 2px 0 #000, 
-                          2px 2px 0 #000, 
-                         2px -2px 0 #000, 
-                        -2px -2px 0 #000;
-}
+
 .slider .item img {
 	width: 100%;
 	position: relative;
 	z-index: 0;
-	box-shadow: 4px 0 1px 1px  #000;
-	
 }
 
 
@@ -207,6 +193,6 @@ a {
 	text-align: center;
 	font-size: 25px;
 	font-weight: bold;
-	/*text-shadow: 0px 0px 5px  rgba(0,0,0,1);*/
+	text-shadow: 0px 0px 5px  rgba(0,0,0,1), 0px 0px 5px  rgba(0,0,0,1);
 	/*text-shadow: -1px 1px 0 #000, 1px 1px 0 #000, 1px -1px 0 #000, -1px -1px 0 #000;*/
 }
