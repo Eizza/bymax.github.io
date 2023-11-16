@@ -86,6 +86,7 @@ html{
 .slider .item img {
 	width: 100%;
 	position: relative;
+	z-index: 10;
 }
 .slider p{
 	position: absolute;
