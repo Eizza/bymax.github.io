@@ -163,9 +163,10 @@ a {
 	left: 50%;
 	/*top: 50%;*/
 	transform: translate(-50%, 0);
-	background: rgba(0,0,0,0.1);
+	background: rgba(0,0,0,0.3);
 	z-index: 999;
 	backdrop-filter: blur(10px);
+	-webkit-backdrop-filter: blur(10px);
 	border-radius: 20px;
 	box-shadow: 0 0 10px 0 #000;
 }
