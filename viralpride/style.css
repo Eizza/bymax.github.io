@@ -6,13 +6,40 @@
 }
 html{
 	background: #000;
-	/*overflow: hidden;*/
+	overflow: hidden;
 }
 .bg{
 	width: 100%;
 	position: fixed;
 	z-index: -1;
 }
+
+.linegr {
+	margin: 5px 0;
+
+	display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+.linegr::after{
+	content: '';
+	width: 30%;
+	height: 1px;
+	background: linear-gradient(45deg, rgba(255,255,255,1), rgba(255,255,255,0));
+}
+.linegr::before{
+	content: '';
+	width: 30%;
+	height: 1px;
+	background: linear-gradient(45deg, rgba(255,255,255,0), rgba(255,255,255,1));
+}
+.linegr img {
+	width: 15px;
+	margin: 8px;
+}
+
+
 .mr5{
 	position: relative;
 	height: 5vh;
@@ -56,11 +83,21 @@ html{
 	transform: translate(-50%, 0) scale(1);
 	}
 }
+
+.pulse{
+	animation: pulselnk 3s infinite;
+}
+
+
+
+
+
 .sliderp{
 	overflow: hidden;
 	width: 100%;
-	height: 90vw;
+	height: 80vw;
 	position: relative;
+	/*background: red;*/
 }
 
 .slider{
@@ -69,13 +106,14 @@ html{
 }
 
 .slider .item {
-	width: 70vw;
-	height: 85vw;
+	width: 60vw;
+	height: 75vw;
 	float: left;
 	overflow: hidden;
-	margin: 15px 15vw;
+	margin: 10px 20vw;
 	border-radius: 10px;
-	box-shadow: 0 0 10px 5px rgba(0,0,0,.8);
+	/*box-shadow: 0 0 10px 5px rgba(0,0,0,.8);*/
+	box-shadow: 0 0 13px 0px #000;
 }
 
 .slider .item img {
@@ -85,8 +123,10 @@ html{
 }
 
 
+
+
 .btn {
-	width: 20px;
+	width: 30px;
 	position: absolute;
 	top: 50%;
 	transform: translate(-50%, -50%);
@@ -116,12 +156,10 @@ html{
 	position: relative;
 	left: 50%;
 	transform: translate(-50%, 0);
-	margin: 20px 0;
+	margin: 5px 0;
 	border-radius: 5px;
 }
-.pulse{
-	animation: pulselnk 3s infinite;
-}
+
 a {
 	font-weight: bold;
 	display: block;
@@ -155,30 +193,7 @@ a {
 	position: absolute;
 }
 
-.linegr {
-	margin: 5px 0;
 
-	display: flex;
-    align-items: center;
-    justify-content: center;
-    position: relative;
-}
-.linegr::after{
-	content: '';
-	width: 30%;
-	height: 1px;
-	background: linear-gradient(45deg, rgba(255,255,255,1), rgba(255,255,255,0));
-}
-.linegr::before{
-	content: '';
-	width: 30%;
-	height: 1px;
-	background: linear-gradient(45deg, rgba(255,255,255,0), rgba(255,255,255,1));
-}
-.linegr img {
-	width: 15px;
-	margin: 8px;
-}
 
 .price {
 	position: relative;
@@ -193,6 +208,6 @@ a {
 	text-align: center;
 	font-size: 25px;
 	font-weight: bold;
-	text-shadow: 0px 0px 5px  rgba(0,0,0,1), 0px 0px 5px  rgba(0,0,0,1);
+	/*text-shadow: 0px 0px 5px  rgba(0,0,0,1), 0px 0px 5px  rgba(0,0,0,1);*/
 	/*text-shadow: -1px 1px 0 #000, 1px 1px 0 #000, 1px -1px 0 #000, -1px -1px 0 #000;*/
 }
