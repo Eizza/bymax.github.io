@@ -9,7 +9,7 @@ window.onload = function(){
 		s: 59,
 	}
 	// ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"],
-	var countDownDate = new Date("Nov 25, 2023 23:59:59").getTime();
+	var countDownDate = new Date("Nov 26, 2023 23:59:59").getTime();
 
 	timerF();
 
