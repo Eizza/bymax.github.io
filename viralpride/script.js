@@ -1,6 +1,50 @@
 // rgba(1,209,255,1)
 window.onload = function(){
-	// draw();
+	// draw(); //rain
+	
+	var ds = {
+		d: 25,
+		h: 20,
+		m: 59,
+		s: 59,
+	}
+	// ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"],
+	var countDownDate = new Date("Nov 25, 2023 23:59:59").getTime();
+
+	timerF();
+
+	function timerF(){
+		var timer = setInterval(function(){
+			var date = new Date();
+
+			var distance = countDownDate - date;
+
+			var d = {
+				d: Math.floor(distance / (1000 * 60 * 60 * 24)),
+				h: Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)),
+				m: Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60)),
+				s: Math.floor((distance % (1000 * 60)) / 1000)
+			}
+
+
+			if(d.h < 10) { d.h = "0"+d.h }
+			if(d.m < 10) { d.m = "0"+d.m }
+			if(d.s < 10) { d.s = "0"+d.s }
+
+			
+			$(".sale_timer").html( (d.d*24) + d.h+ ":" +d.m+ ":" +d.s);
+			// $(".sale_timer").html( d.d + " дня " + d.h+ ":" +d.m+ ":" +d.s);
+
+			if (distance < 0) {
+	    		clearInterval(timer);
+				$(".sale_timer").html("00:00:00");
+				$(".sale").remove();
+	  		}
+
+			
+		}, 1000);
+	
+	}
 
 
 	var sliderarrow = 1;
@@ -17,7 +61,6 @@ window.onload = function(){
 		sliderarrow += 100;
 		TweenMax.to('.slider', 0.3, {left: sliderarrow +"vw"});
 		optsl.count--;
-			console.log(optsl.count);
 	});
 
 	$('.btnl').click(function(){
@@ -28,7 +71,6 @@ window.onload = function(){
 		sliderarrow -= 100;
 		TweenMax.to('.slider', 0.3, {left: sliderarrow +"vw"});
 		optsl.count++;
-			console.log(optsl.count);
 	});
 
 
