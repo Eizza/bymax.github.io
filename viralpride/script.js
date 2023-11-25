@@ -27,12 +27,18 @@ window.onload = function(){
 			}
 
 
-			if(d.h < 10) { d.h = "0"+d.h }
+			if(d.d < 1){
+				if(String(d.d).length == 1) { d.h = "0"+d.h }
+			}
+			else {
+				d.h = (d.d*24) + d.h
+			}
 			if(d.m < 10) { d.m = "0"+d.m }
 			if(d.s < 10) { d.s = "0"+d.s }
 
+			$(".sale_timer").html( d.h +":"+ d.m +":"+ d.s );
 			
-			$(".sale_timer").html( (d.d*24) + d.h+ ":" +d.m+ ":" +d.s);
+			console.log(d.h)
 			// $(".sale_timer").html( d.d + " дня " + d.h+ ":" +d.m+ ":" +d.s);
 
 			if (distance < 0) {
