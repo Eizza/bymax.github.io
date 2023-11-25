@@ -38,9 +38,6 @@ window.onload = function(){
 
 			$(".sale_timer").html( d.h +":"+ d.m +":"+ d.s );
 			
-			console.log(d.h)
-			// $(".sale_timer").html( d.d + " дня " + d.h+ ":" +d.m+ ":" +d.s);
-
 			if (distance < 0) {
 	    		clearInterval(timer);
 				$(".sale_timer").html("00:00:00");
