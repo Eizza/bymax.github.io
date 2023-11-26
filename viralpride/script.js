@@ -28,7 +28,8 @@ window.onload = function(){
 
 
 			if(d.d < 1){
-				if(String(d.d).length == 1) { d.h = "0"+d.h }
+				// console.log(d.d)
+				if(String(d.h).length == 1) { d.h = "0"+d.h }
 			}
 			else {
 				d.h = (d.d*24) + d.h
@@ -37,7 +38,7 @@ window.onload = function(){
 			if(d.s < 10) { d.s = "0"+d.s }
 
 			$(".sale_timer").html( d.h +":"+ d.m +":"+ d.s );
-			
+
 			if (distance < 0) {
 	    		clearInterval(timer);
 				$(".sale_timer").html("00:00:00");
