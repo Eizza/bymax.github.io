@@ -9,7 +9,7 @@ window.onload = function(){
 		s: 59,
 	}
 	// ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"],
-	var countDownDate = new Date("Nov 26, 2023 23:59:59").getTime();
+	var countDownDate = new Date("Nov 25, 2023 23:59:59").getTime();
 
 	timerF();
 
@@ -37,11 +37,14 @@ window.onload = function(){
 			if(d.m < 10) { d.m = "0"+d.m }
 			if(d.s < 10) { d.s = "0"+d.s }
 
+			$(".sale").css({'opacity': 1});
+
 			$(".sale_timer").html( d.h +":"+ d.m +":"+ d.s );
 
 			if (distance < 0) {
 	    		clearInterval(timer);
 				$(".sale_timer").html("00:00:00");
+				$( ".kk" ).append( "<div class='mr40'></div>" );
 				$(".sale").remove();
 	  		}
 
