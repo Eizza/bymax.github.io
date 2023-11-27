@@ -1,6 +1,24 @@
 // rgba(1,209,255,1)
 window.onload = function(){
 	// draw(); //rain
+
+	var bggr = {
+		a2: 'linear-gradient(45deg, rgba(259,45,56,1), rgba(255,107,18,1))',
+		a1: 'linear-gradient(45deg, rgba(255,45,56,1), rgba(248,190,18,1))',
+		a3: 'linear-gradient(45deg, rgba(40,7,135,1), rgba(81,160,207,1))',
+		a4: 'linear-gradient(45deg, rgba(40,70,15,1), rgba(81,160,207,1))',
+	}
+
+	var bgarr = [bggr.a1, bggr.a2, bggr.a3, bggr.a4];
+
+	
+
+		TweenMax.fromTo(".bg-gradient", 5, {
+			background: 'linear-gradient(0deg, rgba(40,70,135,1), rgba(81,160,207,1))'
+		}, {
+			background: 'linear-gradient(360deg, rgba(40,70,135,1), rgba(81,160,207,1))',
+			ease:"Linear.easeNone", repeat:-1})
+	
 	
 	var ds = {
 		d: 25,
@@ -62,8 +80,8 @@ window.onload = function(){
 
 	$('.btnr').click(function(){
 		if(optsl.count <= 1) {
-			optsl.count = 5;
-			sliderarrow = -400;
+			optsl.count = 6;
+			sliderarrow = -500;
 		}
 		sliderarrow += 100;
 		TweenMax.to('.slider', 0.3, {left: sliderarrow +"vw"});
@@ -71,7 +89,7 @@ window.onload = function(){
 	});
 
 	$('.btnl').click(function(){
-		if(optsl.count >= 4) {
+		if(optsl.count >= 5) {
 			optsl.count = 0;
 			sliderarrow = 100;
 		}
@@ -79,9 +97,6 @@ window.onload = function(){
 		TweenMax.to('.slider', 0.3, {left: sliderarrow +"vw"});
 		optsl.count++;
 	});
-
-
-
 }
 
 
