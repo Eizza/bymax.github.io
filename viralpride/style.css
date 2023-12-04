@@ -219,6 +219,17 @@ p {
 	/*text-shadow: 0px 0px 5px  rgba(0,0,0,1), 0px 0px 5px  rgba(0,0,0,1);*/
 	/*text-shadow: -1px 1px 0 #000, 1px 1px 0 #000, 1px -1px 0 #000, -1px -1px 0 #000;*/
 }
+.kaspib {
+	background: red;
+	padding: 10px;
+	margin: 5px;
+	font-size: 15px;
+	border-radius: 8px;
+	font-family: arial;
+}
+.kaspi_gold {
+	background: #dd9a67;
+}
 .price_new{
 	background: #000;
 }

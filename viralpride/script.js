@@ -13,11 +13,10 @@ window.onload = function(){
 
 	
 
-		TweenMax.fromTo(".bg-gradient", 5, {
-			background: 'linear-gradient(0deg, rgba(40,70,135,1), rgba(81,160,207,1))'
+		TweenMax.fromTo(".bg-gradient", 6, {
+			background: 'linear-gradient(0deg, rgba(40,70,135,1), rgba(81,160,207,1))', ease: "none"
 		}, {
-			background: 'linear-gradient(360deg, rgba(40,70,135,1), rgba(81,160,207,1))',
-			ease:"Linear.easeNone", repeat:-1})
+			background: 'linear-gradient(360deg, rgba(40,70,135,1), rgba(81,160,207,1))', ease: "none", repeat:-1})
 	
 	
 	var ds = {
@@ -80,8 +79,8 @@ window.onload = function(){
 
 	$('.btnr').click(function(){
 		if(optsl.count <= 1) {
-			optsl.count = 6;
-			sliderarrow = -500;
+			optsl.count = 5;
+			sliderarrow = -400;
 		}
 		sliderarrow += 100;
 		TweenMax.to('.slider', 0.3, {left: sliderarrow +"vw"});
@@ -89,7 +88,7 @@ window.onload = function(){
 	});
 
 	$('.btnl').click(function(){
-		if(optsl.count >= 5) {
+		if(optsl.count >= 4) {
 			optsl.count = 0;
 			sliderarrow = 100;
 		}
