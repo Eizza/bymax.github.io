@@ -1,6 +1,12 @@
 @font-face {
   font-family: rubik;
-  src: url(font/Rubik-Regular.ttf);
+  /*src: url(font/Rubik-Regular.ttf);*/
+  src: url(font/Manrope-Regular.ttf);
+}
+@font-face {
+  font-family: JosefinSans;
+  /*src: url(font/Rubik-Regular.ttf);*/
+  src: url(font/JosefinSans-Regular.ttf);
 }
 *{
 	margin: 0;
@@ -225,7 +231,7 @@ p {
 	margin: 5px;
 	font-size: 15px;
 	border-radius: 8px;
-	font-family: arial;
+	font-family: JosefinSans;
 }
 .kaspi_gold {
 	background: #dd9a67;
