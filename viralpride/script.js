@@ -13,10 +13,10 @@ window.onload = function(){
 
 	
 
-		TweenMax.fromTo(".bg-gradient", 6, {
-			background: 'linear-gradient(0deg, rgba(40,70,135,1), rgba(81,160,207,1))', ease: "none"
-		}, {
-			background: 'linear-gradient(360deg, rgba(40,70,135,1), rgba(81,160,207,1))', ease: "none", repeat:-1})
+		// TweenMax.fromTo(".bg-gradient", 6, {
+		// 	background: 'linear-gradient(0deg, rgba(40,70,135,1), rgba(81,160,207,1))', ease: "none"
+		// }, {
+		// 	background: 'linear-gradient(360deg, rgba(40,70,135,1), rgba(81,160,207,1))', ease: "none", repeat:-1})
 	
 	
 	var ds = {
@@ -26,7 +26,7 @@ window.onload = function(){
 		s: 59,
 	}
 	// ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"],
-	var countDownDate = new Date("Jan 3, 2024 23:59:59").getTime();
+	var countDownDate = new Date("Feb 22, 2024 23:59:59").getTime();
 
 	timerF();
 
