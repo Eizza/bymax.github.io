@@ -258,6 +258,7 @@ p {
 	top: -10px;
 }
 .sale{
+	display: none;
 	position: relative;
 	overflow: hidden;
 	opacity: 0;

@@ -28,7 +28,7 @@ window.onload = function(){
 	// ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"],
 	var countDownDate = new Date("Feb 22, 2024 23:59:59").getTime();
 
-	timerF();
+	// timerF();
 
 	function timerF(){
 		var timer = setInterval(function(){
