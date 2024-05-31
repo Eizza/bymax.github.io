@@ -34,26 +34,51 @@ body {
 .container {
 	width: 100%;
 	position: relative;
+	overflow: hidden;
 }
 .container .item {
 	display: block;
 	width: 80%;
 	margin: 0 10%;
 
+	justify-content: center;
 	text-align: center;
 }
 
 .container .chld {
 	display: inline-block;
+	text-align: center;
 
-	width: 300px;
+/*	width: 300px;*/
+	min-width: 30%;
+	max-width: 300px;
 	height: 200px;
 
-	margin: 20px;
-	line-height: 200px;
+	margin: 20px 5px;
 
 	border-radius: 10px;
-	font-size: 50px;
+}
+
+@media (max-width: 600px) {
+	.container .item{ width: 100%; margin: 0; }
+	.container .chld{
+		width: 200px;
+		margin: 5px 10px;
+	}
+}
+@media (max-width: 500px) {
+	.container .item{ width: 100%; margin: 0; }
+	.container .chld{
+		width: 40%;
+		margin: 10px 5px;
+	}
+}
+@media (max-width: 300px) {
+	.container .item{ width: 100%; margin: 0; }
+	.container .chld{
+		width: 90%;
+		margin: 10px 5px;
+	}
 }
 
 /*============================*/
@@ -64,11 +89,12 @@ body {
 
 .cnt1 {
 	display: inline-block;
-	width: 800px;
+	max-width: 200px;
+	min-width: 800px;
 
-	/*vertical-align: middle;
-	justify-content: center;
-*/
+/*	vertical-align: middle;*/
+/*	justify-content: center;*/
+
 	
 }
 
