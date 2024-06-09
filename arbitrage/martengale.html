@@ -3,67 +3,27 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Document</title>
+	<link rel="stylesheet" href="style.css">
 </head>
 <body>
 	<style>
-		body {
-			background: #2B3139;
-		}
-		*{
-			margin: 0;	
-			padding: 0;
-			font-family: calibri;
-			margin: 5px;	
-			padding: 3px;
-			font-size: 30px;
-			font-weight: bold;
-			color: #eee;
-		}
-
-		.container {
-			margin: auto;
-			display: flex;
-			justify-content: center;
-		}
-
-		input, button ,p{
-			background: #2B3139;
-/*			background: red;*/
-			margin: 10px;
-			padding: 10px;
-			font-size: 30px;
-			border: 1px solid #000;
-		}
-		p {
-			border: 0;
-		}
-		
-		.btn {
-			border: 1px solid #555;
-		}
-
-		#tabledeal {
-			padding: 5px;
-			margin: 5px auto;
-			text-align: center;
-			font-size: 15px;
-		}
-
-		.addm {
-			color: #0ECB81;
-		}
 		
 	</style>
 	<span></span>
 
+	
 	<div class="container">
-		<input oninput="percent()" id="aNum" type="number" value="10">
-		<input oninput="percent()" id="bNum" type="number" value="11">
 		<p id="pers">0.00%</p>
 	</div>
 
+	<div class="container">
+		<input oninput="percent()" id="aNum" type="number" value="10">
+		<input oninput="percent()" id="bNum" type="number" value="11">
+	</div>
+
+
 	<div class="container" oninput="dealList()">
-		<input id="deal"        type="number" value="700" s">
+		<input id="deal"        type="number" value="10" s">
 		<input id="coefficient" type="number" value="1.01" step="0.01">
 		<!-- <button class="btn" id="start5" onclick="dealList()">start</button> -->
 	</div>
