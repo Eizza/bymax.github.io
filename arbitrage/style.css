@@ -5,7 +5,7 @@
 
 body {
 	background: #161a1e;
-	overflow: hidden;
+	overflow-x: hidden;
 }
 *{
 	margin: 0;	
@@ -36,7 +36,7 @@ input, button, #pers {
 	input, button, #pers {
 		font-size: 70px;
 	}
-	input, button ,p{
+	input, button{
 		background: #2B3139;
 /*			background: red;*/
 		margin: 10px auto;
@@ -46,7 +46,12 @@ input, button, #pers {
 	}
 }
 
-input, button ,p{
+.addm {
+	color: #0ECB81;
+	width: 800px;
+}
+
+input, button {
 	background: #2B3139;
 /*			background: red;*/
 	margin: 10px;
@@ -77,6 +82,3 @@ p {
 	justify-content: center;
 }
 
-.addm {
-	color: #0ECB81;
-}
