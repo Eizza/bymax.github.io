@@ -6,12 +6,8 @@
 	<link rel="stylesheet" href="style.css">
 </head>
 <body>
-	<style>
-		
-	</style>
 	<span></span>
 
-	
 	<div class="container">
 		<p id="pers">0.00%</p>
 	</div>
@@ -24,11 +20,20 @@
 
 	<div class="container" oninput="dealList()">
 		<input id="deal"        type="number" value="10" s">
-		<input id="coefficient" type="number" value="1.01" step="0.01">
+		<input id="coefficient" type="number" value="2" step="0.01">
 		<!-- <button class="btn" id="start5" onclick="dealList()">start</button> -->
 	</div>
 
 	<div id="tabledeal"></div>
+
+	<table id="table2">
+			<tr>
+				<td>#</td>
+				<td>SUMM</td>
+				<td>X</td>
+				<td>DEP</td>
+			</tr>			
+	</table>
 
 		<script>
 
@@ -50,16 +55,32 @@
 					var summ = 0;
 					var coeff = parseFloat(coefficient.value).toFixed(2);
 
-					tabledeal.innerHTML = "";
+					table2.innerHTML = "";
 
 					for(var i=0; i<20; i++){
 						var p = document.createElement("p");
+						var tr = document.createElement("tr");
+						var td = document.createElement("td");
 						var d = (n*coeff) - n;
 
 						summ = parseFloat(summ + n);
-						p.innerHTML = (i+1) + ". " +  parseFloat(n).toFixed(2) + " $| <span class='addm'>+" + d.toFixed(2)  + "$</span>";
+
+						var n1 = (i+1) + ". "
+						var n2 = parseFloat(n).toFixed(2) + " $"
+						var n3 = "+" + d.toFixed(2) + " $"
+						var n4 = summ.toFixed(2) + " $"
+
+						// p.innerHTML = (i+1) + ". " +  parseFloat(n).toFixed(2) + " $ | <span class='addm'>+" + d.toFixed(2) + "$</span>" + " dep: " + summ.toFixed(2) + "$";
+
+						tr.innerHTML = "<tr>"
+											+'<td>'+n1+'</td>'
+											+'<td>'+n2+'</td>'
+											+'<td class="td3">'+n3+'</td>'
+											+'<td>'+n4+'</td>'
+										+"</tr>"
+
 						n *= coeff;
-						tabledeal.append(p);
+						table2.append(tr);
 					}
 			}
 
