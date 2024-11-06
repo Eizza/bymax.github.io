@@ -191,6 +191,9 @@ a {
 .gradient-blue{
 	background: linear-gradient(-45deg, #1298e5, #013172);
 }
+.gradient-cyber{
+	background: linear-gradient(-45deg, #ff0078, #1298e5);
+}
 .gradient-gray{
 	background: linear-gradient(-45deg, #545454, #393939);
 }
