@@ -16,7 +16,6 @@
 }
 html{
 	background: #000;
-	overflow: hidden;
 }
 .bg, .bg-gradient{
 	width: 100%;
@@ -111,7 +110,7 @@ html{
 
 
 .sliderp{
-	overflow: hidden;
+/*	overflow: hidden;*/
 	position: relative;
 }
 
@@ -126,18 +125,26 @@ html{
 	width: 200px;
 	float: left;
 	overflow: hidden;
-	margin: 3px;
-	border-radius: 25px;
-	padding: 5px;
+	margin: 2px;
+	border-radius: 12px;
+	padding: 2px;
 /*	box-shadow: 0 0 20px 0px #000;*/
 }
 
-.slider .item img {
+.slider .item img, .slider .item video{
 	width: 100%;
 	position: relative;
 	z-index: 0;
-	border-radius: 20px;
+	border-radius: 10px;
 }
+
+.sale1 {
+	transform: scale(1.1);
+	z-index: 3;
+	box-shadow: 0 0 20px 0px #000;
+}
+
+
 
 .price {
 /*	color: y;*/
