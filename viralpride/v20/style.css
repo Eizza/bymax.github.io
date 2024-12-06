@@ -60,7 +60,10 @@ html{
 	margin: 8px;
 }
 
-
+.mr1{
+	position: relative;
+	height: 1vh;
+}
 .mr5{
 	position: relative;
 	height: 5vh;
