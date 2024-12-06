@@ -74,28 +74,54 @@ window.onload = function(){
 	var sliderarrow = 1;
 
 	var optsl = {
-		count: 1
+		count: 1,
+		count2: 1
 	}
+
+
+	var w = $('.slider li').width() + 
+			(parseFloat($('.slider li').css('margin'))*2) + 
+			(parseFloat($('.slider li').css('padding'))*2)
+
+	console.log(parseFloat($('.slider li').css('margin')));
+
+
 
 	$('.btnr').click(function(){
 		if(optsl.count <= 1) {
-			optsl.count = 5;
-			sliderarrow = -400;
+			optsl.count = 1;
+			sliderarrow = 0;
 		}
-		sliderarrow += 100;
-		TweenMax.to('.slider', 0.3, {left: sliderarrow +"vw"});
+		sliderarrow += w;
+		TweenMax.to('.slider', 0.3, {left: sliderarrow +"px"});
 		optsl.count--;
+		$('.slider .item').removeClass('licheck');
+		$('.itls'+(optsl.count)).addClass('licheck');
+
+		console.log(optsl.count)
 	});
 
 	$('.btnl').click(function(){
-		if(optsl.count >= 4) {
-			optsl.count = 0;
-			sliderarrow = 100;
+		if(optsl.count >= 1) {
+			optsl.count = 1;
+			sliderarrow = 0;
 		}
-		sliderarrow -= 100;
-		TweenMax.to('.slider', 0.3, {left: sliderarrow +"vw"});
+		sliderarrow -= w;
+		TweenMax.to('.slider', 0.3, {left: sliderarrow +"px"});
+
+		$('.slider .item').removeClass('licheck');
 		optsl.count++;
+
+		$('.itls'+(optsl.count)).addClass('licheck');
+
+		console.log(optsl.count, 111);
 	});
+
+
+
+	console.log(optsl.count)
+
+
 }
 
 
