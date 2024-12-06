@@ -18,6 +18,42 @@ html{
 	background: #000;
 	overflow: hidden;
 }
+.preload {
+	position: fixed;
+	width: 100vw;
+	height: 100vh;
+	background: #000;
+	z-index: 100;
+	transition: 0.5s all;
+}
+.load{
+	position: absolute;
+	width: 20px;
+	height: 20px;
+	border: 2px solid #fff;
+	border-top: 2px solid #000;
+	border-radius: 50%;
+	left: 50%;
+	top: 50%;
+	transform: translate(-50%, -50%);
+
+	animation: load 2s linear infinite;
+}
+
+.prehidden {
+		visibility: hidden;
+}
+
+@keyframes load{
+	from {
+		transform: translate(-50%, -50%) rotate(0deg);
+	}
+	to {
+		transform: translate(-50%, -50%) rotate(360deg);
+	}
+}
+
+
 .bg, .bg-gradient{
 	width: 100%;
 	position: fixed;

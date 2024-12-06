@@ -1,5 +1,14 @@
 // rgba(1,209,255,1)
 window.onload = function(){
+	setTimeout(function(){
+		$('.preload').css('opacity', '0');
+		$('.preload').addClass('prehidden');
+		console.log(1223)
+	}, 1000);
+
+	// setTimeout(function(){
+	// 	console.log(1223)
+	// }, 1000);
 	// draw(); //rain
 
 	var bggr = {
@@ -92,10 +101,10 @@ window.onload = function(){
 			optsl.count = 1;
 			sliderarrow = 0;
 		}
+		$('.slider .item').removeClass('licheck');
 		sliderarrow += w;
 		TweenMax.to('.slider', 0.3, {left: sliderarrow +"px"});
 		optsl.count--;
-		$('.slider .item').removeClass('licheck');
 		$('.itls'+(optsl.count)).addClass('licheck');
 
 		console.log(optsl.count)
@@ -106,10 +115,10 @@ window.onload = function(){
 			optsl.count = 1;
 			sliderarrow = 0;
 		}
+		$('.slider .item').removeClass('licheck');
 		sliderarrow -= w;
 		TweenMax.to('.slider', 0.3, {left: sliderarrow +"px"});
 
-		$('.slider .item').removeClass('licheck');
 		optsl.count++;
 
 		$('.itls'+(optsl.count)).addClass('licheck');
