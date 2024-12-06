@@ -1,8 +1,8 @@
 // rgba(1,209,255,1)
 window.onload = function(){
 	setTimeout(function(){
-		$('.preload').css('opacity', '0');
-		$('.preload').addClass('prehidden');
+		// $('.preload').css('opacity', '0');
+		// $('.preload').addClass('prehidden');
 		console.log(1223)
 	}, 1000);
 

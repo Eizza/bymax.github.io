@@ -26,6 +26,16 @@ html{
 	z-index: 100;
 	transition: 0.5s all;
 }
+.preload h4 {
+	z-index: 10;
+	position: absolute;
+	color: #fff;
+	text-align: center;
+	width: 50%;
+	left: 50%;
+	top: 75vh;
+	transform: translate(-50%, -50%);
+}
 .load{
 	position: absolute;
 	width: 20px;
