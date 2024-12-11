@@ -3,13 +3,9 @@ window.onload = function(){
 	setTimeout(function(){
 		$('.preload').css('opacity', '0');
 		$('.preload').addClass('prehidden');
-		console.log(1223)
 	}, 1000);
 
-	// setTimeout(function(){
-	// 	console.log(1223)
-	// }, 1000);
-	// draw(); //rain
+	draw(); //rain
 
 	var bggr = {
 		a2: 'linear-gradient(45deg, rgba(259,45,56,1), rgba(255,107,18,1))',
@@ -92,7 +88,6 @@ window.onload = function(){
 			(parseFloat($('.slider li').css('margin'))*2) + 
 			(parseFloat($('.slider li').css('padding'))*2)
 
-	console.log(parseFloat($('.slider li').css('margin')));
 
 
 
@@ -101,13 +96,12 @@ window.onload = function(){
 			optsl.count = 1;
 			sliderarrow = 0;
 		}
+		
 		$('.slider .item').removeClass('licheck');
 		sliderarrow += w;
 		TweenMax.to('.slider', 0.3, {left: sliderarrow +"px"});
 		optsl.count--;
 		$('.itls'+(optsl.count)).addClass('licheck');
-
-		console.log(optsl.count)
 	});
 
 	$('.btnl').click(function(){
@@ -115,15 +109,12 @@ window.onload = function(){
 			optsl.count = 1;
 			sliderarrow = 0;
 		}
+
 		$('.slider .item').removeClass('licheck');
 		sliderarrow -= w;
 		TweenMax.to('.slider', 0.3, {left: sliderarrow +"px"});
-
 		optsl.count++;
-
 		$('.itls'+(optsl.count)).addClass('licheck');
-
-		console.log(optsl.count, 111);
 	});
 
 
