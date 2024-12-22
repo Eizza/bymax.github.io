@@ -5,7 +5,7 @@ window.onload = function(){
 		$('.preload').addClass('prehidden');
 	}, 1000);
 
-	draw(); //rain
+	// draw(); //rain
 
 	var bggr = {
 		a2: 'linear-gradient(45deg, rgba(259,45,56,1), rgba(255,107,18,1))',
