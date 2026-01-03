@@ -191,7 +191,7 @@ html{
 .sliderp{
 	/*overflow: hidden;*/
 	position: relative;
-	z-index: -1;
+	z-index: 0;
 }
 
 .licheck {
@@ -214,6 +214,12 @@ html{
 	width: 100px;
 	transform: translate(-50%, 0);
 	margin: 10px 50%;
+}
+.dlogo {
+	position: relative;
+	font-size: 15px; 
+	z-index: 10; 
+	color: var(--green);
 }
 .slider{
 	position: relative;
@@ -301,7 +307,7 @@ html{
 	position: absolute;
 	top: 50%;
 	transform: translate(-50%, -50%);
-	z-index: 1000;
+	z-index: 10;
 }
 .btnl {
 	left: calc(100vw - 5vw);
