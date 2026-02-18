@@ -235,12 +235,15 @@ p {
 .con4 a img {
 	width: 25px;
 }
-
+.con5 {
+	margin: 0 20px;
+}
 .con5 h1{
 	font-family: Times New roman;
 	font-size: 22px;
 	font-weight: 100;
 	line-height: 30px;
+	margin: 20px 0 0 0;
 }
 
 
