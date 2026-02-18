@@ -223,13 +223,13 @@ p {
 	color: var(--white);
 	/*font-family: Times New roman;*/
 	font-family: arial;
-	font-size: 20px;
+	font-size: 15px;
 
 	display: flex;
   align-items: center;
   justify-content: center;
   gap: 10px; /* расстояние между иконкой и текстом */
-  padding: 10px 0 ;
+  padding: 5px 0 ;
 
 }
 .con4 a img {

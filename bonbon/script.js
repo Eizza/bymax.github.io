@@ -21,32 +21,56 @@ window.onload = function(){
   }
     });
 
+// ыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыы
 
-    $(function(){
-        var $el = $("p, h1, h2, h3, h4, h5, h6");
+    $(function () {
+  var $el = $("p, h1, h2, h3, h4, h5, h6");
+  var activated = false;
 
-        $(window).on("scroll", function(){
+  function inView($x) {
+    var top = $x.offset().top;
+    var wTop = $(window).scrollTop();
+    var wBottom = wTop + $(window).height();
+    return wBottom > top + 50 && wTop < top + $x.outerHeight();
+  }
 
-          var wBottom = $(this).scrollTop() + $(this).height() + 500;
-          $el.each(function(i){
-            if($(this).data("a")) return;
-            if(wBottom > $(this).offset().top){
-              $(this).data("a",1);
-              TweenMax.fromTo(this, 1,
-                {x:-120, opacity:0},
-                {x:0, opacity:1, delay:i*0.15, ease:Circ.easeOut
-              }
-              );
-            }
-          });
-        });
+  function revealVisible() {
+    var delay = 0;
 
-      });
+    $el.each(function () {
+      var $x = $(this);
+      if ($x.data("a")) return;
+      if (!inView($x)) return;
+
+      $x.data("a", 1);
+      TweenMax.fromTo(this, 1,
+        { x: -120, opacity: 0 },
+        { x: 0, opacity: 1, ease: Power3.easeOut, delay: delay }
+      );
+      delay += 0.15; // “волной” после нажатия
+    });
+  }
+
+  // 1) старт по нажатию на экран (первый раз)
+  $(document).one("click touchstart", function () {
+    activated = true;
+    revealVisible();
+  });
+
+  // 2) при скролле показываем остальные (если уже был клик)
+  $(window).on("scroll", function () {
+    if (!activated) return;
+    revealVisible();
+  });
+});
+
+    
+
+// ыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыы
 }
 
 // ыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыы
 // https://script.google.com/macros/s/AKfycbymWzaZHU9ZZ31pmTDznaOw_iTV14hfD3DUyCilFrA-uVJDRYYDPymuOtFD6nVLtukN/exec
-
 
 window.sendData = function () {
   const name = document.getElementById("name").value.trim();
@@ -73,10 +97,6 @@ window.sendData = function () {
       }, 1200);
     });
 };
-
-
-
-
 
 // ыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыы
 
