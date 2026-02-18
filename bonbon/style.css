@@ -11,37 +11,19 @@
 :root {
   --dark: #544943;
   --white: #fff;
-  black: #000;
+  --black: #000;
 }
 
-.mr1{
-	position: relative;
-	height: 1vh;
-}
-.mr5{
-	position: relative;
-	height: 5vh;
-}
-.mr10{
-	position: relative;
-	height: 10vh;
-}
-.mr20{
-	position: relative;
-	height: 12.5vh;
-}
-.mr30{
-	position: relative;
-	height: 15vh;
-}
-.mr40{
-	position: relative;
-	height: 17.5vh;
-}
-.mr50{
-	position: relative;
-	height: 20vh;
-}
+.mr1{ height: 1vh; }
+.mr5{ height: 5vh; }
+.mr10{ height: 10vh; }
+.mr20{ height: 12.5vh; }
+.mr30{ height: 15vh; }
+.mr40{ height: 17.5vh; }
+.mr50{ height: 20vh; }
+
+.mr1, .mr5, .mr10 , .mr20, .mr30, .mr40, .mr50 { position: relative; }
+
 
 .linegr {
 	margin: 5px 0;
@@ -76,9 +58,7 @@ h6 { font-size: clamp(14px, 1.5vw, 16px); font-weight: 500; }
 
 h1, h2, h3, h4, h5, h6{ text-align:center;}
 
-.name2 {
-	font-family: myFont;
-}
+.name2 { font-family: myFont; font-size: 70px }
 
 ul {
   list-style: none;
@@ -95,16 +75,17 @@ li {
 	color: var(black);
 	margin: 0;
 	padding: 0;
-	font-family: myFont;	
+	
 	text-decoration: none;
 	/*outline: 1px solid rgba(0,0,0,.25);*/
 }
 html{
-	background: #fff;
+	/*background: #fff;*/
 }
 
 p, h1, h2, h3, h4, h5, h6 {
   opacity: 0;
+  font-family: myFont;
 }
 
 
@@ -130,7 +111,6 @@ p {
 	text-align: center;
 	font-size: 70px;
 	line-height: 70px;
-
 }
 
 .btn {
@@ -232,4 +212,42 @@ p {
 }
 .con3 h1{
 	font-size: 25px;
+}
+
+.con4 {
+	background: #222;
+
+
+}
+.con4 a{
+	color: var(--white);
+	/*font-family: Times New roman;*/
+	font-family: arial;
+	font-size: 20px;
+
+	display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px; /* расстояние между иконкой и текстом */
+  padding: 10px 0 ;
+
+}
+.con4 a img {
+	width: 25px;
+}
+
+
+#rsvpForm {
+	background: var(--dark);
+	padding: 20px;
+	text-align: center;
+}
+
+input {
+	border-radius: 100px;
+	border: 0;
+	padding: 10px;
+	margin: 5px;
+	font-size: 20px;
+	text-align: center;
 }
